@@ -9,6 +9,13 @@ interface ServicesProps {
 export const Services = ({ isVisible }: ServicesProps) => {
   const { t } = useLanguage();
   
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   const services = [
     {
       icon: Zap,
@@ -95,7 +102,10 @@ export const Services = ({ isVisible }: ServicesProps) => {
           <p className="font-lora text-gray-600 mb-4">
             * Preise können je nach Behandlungsbereich variieren
           </p>
-          <button className="font-montserrat text-salon-teal hover:text-salon-teal-light transition-colors font-medium">
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="font-montserrat text-salon-teal hover:text-salon-teal-light transition-colors font-medium"
+          >
             {t('services.consultation.btn')}
           </button>
         </div>
