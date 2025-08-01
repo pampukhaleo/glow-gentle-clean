@@ -29,8 +29,15 @@ export const Header = () => {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="font-montserrat font-bold text-2xl text-salon-teal">
-            LaserBeauty
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/placeholder.svg" 
+              alt="LaserBeauty Logo" 
+              className="h-10 w-10 object-contain"
+            />
+            <div className="font-montserrat font-bold text-2xl text-salon-teal">
+              LaserBeauty
+            </div>
           </div>
 
           {/* Desktop Navigation */}
