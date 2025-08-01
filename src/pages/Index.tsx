@@ -7,7 +7,6 @@ import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { Procedure } from "@/components/Procedure";
 import { Benefits } from "@/components/Benefits";
-import { Gallery } from "@/components/Gallery";
 import { Reviews } from "@/components/Reviews";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
@@ -45,7 +44,6 @@ const IndexContent = () => {
         <Services isVisible={isVisible} />
         <Procedure isVisible={isVisible} />
         <Benefits isVisible={isVisible} />
-        <Gallery isVisible={isVisible} />
         <Reviews isVisible={isVisible} />
         <FAQ isVisible={isVisible} />
         <Contact isVisible={isVisible} />
