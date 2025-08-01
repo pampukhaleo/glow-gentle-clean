@@ -23,22 +23,22 @@ export const Hero = () => {
         }}
       />
       
-      {/* Logo background - shifted to the right */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div 
-          className="w-96 h-96 md:w-[500px] md:h-[500px] opacity-15 bg-no-repeat bg-center bg-contain transform translate-x-32 md:translate-x-48"
-          style={{
-            backgroundImage: `url('/lovable-uploads/72c56bed-52df-4016-b3d1-753febbcdc13.png')`,
-            filter: 'grayscale(80%) contrast(110%)',
-          }}
-        />
-      </div>
-      
       {/* Overlay pattern */}
       <div className="absolute inset-0 bg-white/10" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        {/* Logo */}
+        <div className="mb-8 animate-fade-in">
+          <div className="mx-auto w-32 h-32 md:w-40 md:h-40 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-white/30">
+            <img 
+              src="/lovable-uploads/72c56bed-52df-4016-b3d1-753febbcdc13.png" 
+              alt="LaserBeauty Logo" 
+              className="w-20 h-20 md:w-24 md:h-24 object-contain filter drop-shadow-lg"
+            />
+          </div>
+        </div>
+
         <h1 className="font-montserrat font-bold text-5xl md:text-7xl text-salon-teal mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           {t('hero.title')}
           <br />
