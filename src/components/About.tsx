@@ -1,11 +1,14 @@
 
 import { Award, Users, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface AboutProps {
   isVisible: Record<string, boolean>;
 }
 
 export const About = ({ isVisible }: AboutProps) => {
+  const { t } = useLanguage();
+
   return (
     <section 
       id="about" 
@@ -17,14 +20,11 @@ export const About = ({ isVisible }: AboutProps) => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Über uns
+            {t('about.title')}
           </h2>
           
           <p className="font-lora text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
-            Seit über 10 Jahren sind wir Ihr vertrauensvoller Partner für professionelle 
-            Laser-Haarentfernung. Unser Team aus zertifizierten Kosmetikerinnen und 
-            Dermatologinnen verwendet ausschließlich modernste Laser-Technologie für 
-            optimale Ergebnisse bei maximaler Sicherheit.
+            {t('about.description')}
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -33,10 +33,10 @@ export const About = ({ isVisible }: AboutProps) => {
                 <Award className="w-8 h-8 text-salon-teal group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="font-montserrat font-semibold text-xl text-salon-teal mb-2">
-                Zertifiziert
+                {t('about.certified')}
               </h3>
               <p className="font-lora text-gray-600">
-                Alle Behandlungen werden von zertifizierten Fachkräften durchgeführt
+                {t('about.certified.desc')}
               </p>
             </div>
 
@@ -45,10 +45,10 @@ export const About = ({ isVisible }: AboutProps) => {
                 <Users className="w-8 h-8 text-salon-teal group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="font-montserrat font-semibold text-xl text-salon-teal mb-2">
-                5000+ Kunden
+                {t('about.clients')}
               </h3>
               <p className="font-lora text-gray-600">
-                Zufriedene Kunden vertrauen auf unsere Expertise
+                {t('about.clients.desc')}
               </p>
             </div>
 
@@ -57,10 +57,10 @@ export const About = ({ isVisible }: AboutProps) => {
                 <Clock className="w-8 h-8 text-salon-teal group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="font-montserrat font-semibold text-xl text-salon-teal mb-2">
-                10+ Jahre
+                {t('about.experience')}
               </h3>
               <p className="font-lora text-gray-600">
-                Langjährige Erfahrung in der Laser-Haarentfernung
+                {t('about.experience.desc')}
               </p>
             </div>
           </div>

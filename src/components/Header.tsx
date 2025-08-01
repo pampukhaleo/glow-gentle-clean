@@ -2,9 +2,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -15,11 +18,11 @@ export const Header = () => {
   };
 
   const menuItems = [
-    { label: "Über uns", id: "about" },
-    { label: "Leistungen", id: "services" },
-    { label: "Galerie", id: "gallery" },
-    { label: "Bewertungen", id: "reviews" },
-    { label: "Kontakt", id: "contact" }
+    { label: t('nav.about'), id: "about" },
+    { label: t('nav.services'), id: "services" },
+    { label: t('nav.gallery'), id: "gallery" },
+    { label: t('nav.reviews'), id: "reviews" },
+    { label: t('nav.contact'), id: "contact" }
   ];
 
   return (
@@ -42,11 +45,12 @@ export const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-salon-teal transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
+            <LanguageSwitcher />
             <Button
               onClick={() => scrollToSection('contact')}
               className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat px-6 py-2 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
             >
-              Termin buchen
+              {t('nav.booking')}
             </Button>
           </nav>
 
@@ -72,11 +76,14 @@ export const Header = () => {
                   {item.label}
                 </button>
               ))}
+              <div className="py-2">
+                <LanguageSwitcher />
+              </div>
               <Button
                 onClick={() => scrollToSection('contact')}
                 className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat w-full mt-2"
               >
-                Termin buchen
+                {t('nav.booking')}
               </Button>
             </div>
           </nav>

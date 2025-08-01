@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -11,7 +12,7 @@ import { Reviews } from "@/components/Reviews";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 
-const Index = () => {
+const IndexContent = () => {
   const [isVisible, setIsVisible] = useState({});
 
   useEffect(() => {
@@ -50,6 +51,14 @@ const Index = () => {
         <Contact isVisible={isVisible} />
       </main>
     </div>
+  );
+};
+
+const Index = () => {
+  return (
+    <LanguageProvider>
+      <IndexContent />
+    </LanguageProvider>
   );
 };
 

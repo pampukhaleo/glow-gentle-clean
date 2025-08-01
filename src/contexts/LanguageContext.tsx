@@ -1,0 +1,241 @@
+
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+
+type Language = 'de' | 'uk';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+const translations = {
+  de: {
+    // Header
+    'nav.about': 'Über uns',
+    'nav.services': 'Leistungen', 
+    'nav.gallery': 'Galerie',
+    'nav.reviews': 'Bewertungen',
+    'nav.contact': 'Kontakt',
+    'nav.booking': 'Termin buchen',
+    
+    // Hero
+    'hero.title': 'Professionelle',
+    'hero.subtitle': 'Laser-Haarentfernung',
+    'hero.description': 'Dauerhaft glatte Haut mit modernster Laser-Technologie. Sicher, effektiv und schmerzarm.',
+    'hero.consultation': 'Kostenlose Beratung',
+    'hero.learn': 'Mehr erfahren',
+    
+    // About
+    'about.title': 'Über uns',
+    'about.description': 'Seit über 10 Jahren sind wir Ihr vertrauensvoller Partner für professionelle Laser-Haarentfernung. Unser Team aus zertifizierten Kosmetikerinnen und Dermatologinnen verwendet ausschließlich modernste Laser-Technologie für optimale Ergebnisse bei maximaler Sicherheit.',
+    'about.certified': 'Zertifiziert',
+    'about.certified.desc': 'Alle Behandlungen werden von zertifizierten Fachkräften durchgeführt',
+    'about.clients': '5000+ Kunden',
+    'about.clients.desc': 'Zufriedene Kunden vertrauen auf unsere Expertise',
+    'about.experience': '10+ Jahre',
+    'about.experience.desc': 'Langjährige Erfahrung in der Laser-Haarentfernung',
+    
+    // Services
+    'services.title': 'Unsere Leistungen',
+    'services.description': 'Professionelle Laser-Haarentfernung für alle Körperbereiche mit modernster IPL- und Dioden-Laser Technologie',
+    'services.face': 'Gesicht & Hals',
+    'services.face.desc': 'Präzise Behandlung für empfindliche Gesichtsbereiche',
+    'services.armpits': 'Achseln',
+    'services.armpits.desc': 'Schnelle und effektive Behandlung für glatte Achseln',
+    'services.legs': 'Beine komplett',
+    'services.legs.desc': 'Vollständige Beinbehandlung für dauerhaft glatte Haut',
+    'services.bikini': 'Bikinizone',
+    'services.bikini.desc': 'Diskrete und schonende Behandlung sensibler Bereiche',
+    'services.popular': 'Beliebt',
+    'services.from': 'Ab',
+    'services.consultation.btn': 'Kostenlose Beratung vereinbaren →',
+    
+    // Procedure  
+    'procedure.title': 'Behandlungsablauf',
+    'procedure.description': 'In vier einfachen Schritten zu dauerhaft glatter Haut',
+    'procedure.consultation': 'Beratung',
+    'procedure.consultation.desc': 'Persönliches Beratungsgespräch und Hautanalyse zur optimalen Behandlungsplanung',
+    'procedure.preparation': 'Vorbereitung',
+    'procedure.preparation.desc': 'Professionelle Vorbereitung der Haut und Einstellung der Laser-Parameter',
+    'procedure.treatment': 'Behandlung',
+    'procedure.treatment.desc': 'Schonende Laser-Behandlung mit modernster IPL-Technologie',
+    'procedure.aftercare': 'Nachsorge',
+    'procedure.aftercare.desc': 'Pflegeempfehlungen und Terminplanung für optimale Ergebnisse',
+    'procedure.duration.title': 'Behandlungsdauer & Ergebnisse',
+    'procedure.duration.desc': 'Eine Sitzung dauert je nach Behandlungsbereich 15-90 Minuten. Für optimale Ergebnisse sind 6-8 Behandlungen im Abstand von 4-6 Wochen empfohlen. Erste Ergebnisse sind bereits nach der 2. Behandlung sichtbar.',
+    
+    // Benefits
+    'benefits.title': 'Ihre Vorteile',
+    'benefits.description': 'Warum sich immer mehr Menschen für professionelle Laser-Haarentfernung entscheiden',
+    'benefits.smooth': 'Dauerhaft glatte Haut',
+    'benefits.smooth.desc': 'Bis zu 95% weniger Haare nach vollständiger Behandlungsserie',
+    'benefits.time': 'Zeitersparnis',
+    'benefits.time.desc': 'Keine tägliche Rasur oder regelmäßige Waxing-Termine mehr nötig',
+    'benefits.safe': 'Schonend & sicher',
+    'benefits.safe.desc': 'Modernste Laser-Technologie für maximalen Komfort bei der Behandlung',
+    'benefits.suitable': 'Für alle Hauttypen',
+    'benefits.suitable.desc': 'Geeignet für verschiedene Haut- und Haartypen dank anpassbarer Parameter',
+    'benefits.no-irritation': 'Keine Hautreizungen',
+    'benefits.no-irritation.desc': 'Vermeidung von Rasurbrand, eingewachsenen Haaren und Hautirritationen',
+    
+    // Gallery
+    'gallery.title': 'Vorher & Nachher',
+    'gallery.description': 'Überzeugen Sie sich von den beeindruckenden Ergebnissen unserer Behandlungen',
+    'gallery.legs': 'Beine',
+    'gallery.armpits': 'Achseln',
+    'gallery.face': 'Gesicht',
+    'gallery.before': 'Vorher',
+    'gallery.after': 'Nachher',
+    'gallery.after-treatments': 'Nach 6 Behandlungen',
+    'gallery.cta': 'Beratungstermin vereinbaren',
+    
+    // Reviews
+    'reviews.title': 'Kundenbewertungen',
+    'reviews.description': 'Was unsere zufriedenen Kundinnen über ihre Erfahrungen sagen',
+    
+    // FAQ
+    'faq.title': 'Häufige Fragen',
+    'faq.description': 'Alles was Sie über Laser-Haarentfernung wissen möchten',
+    'faq.more.title': 'Weitere Fragen?',
+    'faq.more.desc': 'Unser erfahrenes Team beantwortet gerne alle Ihre Fragen in einem persönlichen Beratungsgespräch.',
+    'faq.more.btn': 'Kostenlose Beratung buchen',
+    
+    // Contact
+    'contact.title': 'Kontakt',
+    'contact.description': 'Vereinbaren Sie noch heute Ihren Termin',
+    'contact.name': 'Name',
+    'contact.phone': 'Telefon',
+    'contact.date': 'Wunschtermin',
+    'contact.message': 'Nachricht',
+    'contact.submit': 'Termin anfragen',
+    'contact.address': 'Adresse',
+    'contact.hours': 'Öffnungszeiten'
+  },
+  uk: {
+    // Header
+    'nav.about': 'Про нас',
+    'nav.services': 'Послуги',
+    'nav.gallery': 'Галерея', 
+    'nav.reviews': 'Відгуки',
+    'nav.contact': 'Контакти',
+    'nav.booking': 'Записатися',
+    
+    // Hero
+    'hero.title': 'Професійна',
+    'hero.subtitle': 'лазерна епіляція',
+    'hero.description': 'Назавжди гладенька шкіра з найсучаснішими лазерними технологіями. Безпечно, ефективно та безболісно.',
+    'hero.consultation': 'Безкоштовна консультація',
+    'hero.learn': 'Дізнатися більше',
+    
+    // About
+    'about.title': 'Про нас',
+    'about.description': 'Вже понад 10 років ми є вашим надійним партнером у сфері професійної лазерної епіляції. Наша команда сертифікованих косметологинь та дерматологинь використовує виключно найсучасніші лазерні технології для оптимальних результатів з максимальною безпекою.',
+    'about.certified': 'Сертифіковано',
+    'about.certified.desc': 'Всі процедури виконуються сертифікованими фахівцями',
+    'about.clients': '5000+ клієнтів',
+    'about.clients.desc': 'Задоволені клієнти довіряють нашому досвіду',
+    'about.experience': '10+ років',
+    'about.experience.desc': 'Багаторічний досвід у лазерній епіляції',
+    
+    // Services
+    'services.title': 'Наші послуги',
+    'services.description': 'Професійна лазерна епіляція для всіх частин тіла з найсучаснішими IPL та діодними лазерними технологіями',
+    'services.face': 'Обличчя та шия',
+    'services.face.desc': 'Точна обробка чутливих ділянок обличчя',
+    'services.armpits': 'Пахви',
+    'services.armpits.desc': 'Швидка та ефективна обробка для гладенькх пахв',
+    'services.legs': 'Ноги повністю',
+    'services.legs.desc': 'Повна обробка ніг для назавжди гладенької шкіри',
+    'services.bikini': 'Зона бікіні',
+    'services.bikini.desc': 'Дискретна та делікатна обробка чутливих зон',
+    'services.popular': 'Популярно',
+    'services.from': 'Від',
+    'services.consultation.btn': 'Записатися на безкоштовну консультацію →',
+    
+    // Procedure
+    'procedure.title': 'Процес процедури',
+    'procedure.description': 'У чотири простих кроки до назавжди гладенької шкіри',
+    'procedure.consultation': 'Консультація',
+    'procedure.consultation.desc': 'Персональна консультація та аналіз шкіри для оптимального планування процедур',
+    'procedure.preparation': 'Підготовка',
+    'procedure.preparation.desc': 'Професійна підготовка шкіри та налаштування параметрів лазера',
+    'procedure.treatment': 'Процедура',
+    'procedure.treatment.desc': 'Делікатна лазерна процедура з найсучаснішими IPL-технологіями',
+    'procedure.aftercare': 'Післядогляд',
+    'procedure.aftercare.desc': 'Рекомендації з догляду та планування візитів для оптимальних результатів',
+    'procedure.duration.title': 'Тривалість та результати',
+    'procedure.duration.desc': 'Одна сесія триває від 15 до 90 хвилин залежно від зони обробки. Для оптимальних результатів рекомендується 6-8 процедур з інтервалом 4-6 тижнів. Перші результати помітні вже після 2-ї процедури.',
+    
+    // Benefits
+    'benefits.title': 'Ваші переваги',
+    'benefits.description': 'Чому все більше людей обирають професійну лазерну епіляцію',
+    'benefits.smooth': 'Назавжди гладенька шкіра',
+    'benefits.smooth.desc': 'До 95% менше волосся після повного курсу процедур',
+    'benefits.time': 'Економія часу',
+    'benefits.time.desc': 'Більше немає потреби в щоденному голінні або регулярних процедурах воску',
+    'benefits.safe': 'Делікатно та безпечно',
+    'benefits.safe.desc': 'Найсучасніші лазерні технології для максимального комфорту під час процедури',
+    'benefits.suitable': 'Для всіх типів шкіри',
+    'benefits.suitable.desc': 'Підходить для різних типів шкіри та волосся завдяки регульованим параметрам',
+    'benefits.no-irritation': 'Без подразнень шкіри',
+    'benefits.no-irritation.desc': 'Уникнення подразнень від гоління, вростаючого волосся та роздратувань шкіри',
+    
+    // Gallery
+    'gallery.title': 'До та після',
+    'gallery.description': 'Переконайтеся у вражаючих результатах наших процедур',
+    'gallery.legs': 'Ноги',
+    'gallery.armpits': 'Пахви',
+    'gallery.face': 'Обличчя',
+    'gallery.before': 'До',
+    'gallery.after': 'Після',
+    'gallery.after-treatments': 'Після 6 процедур',
+    'gallery.cta': 'Записатися на консультацію',
+    
+    // Reviews
+    'reviews.title': 'Відгуки клієнтів',
+    'reviews.description': 'Що наші задоволені клієнтки кажуть про свій досвід',
+    
+    // FAQ
+    'faq.title': 'Часті питання',
+    'faq.description': 'Все, що ви хотіли знати про лазерну епіляцію',
+    'faq.more.title': 'Ще питання?',
+    'faq.more.desc': 'Наша досвідчена команда з радістю відповість на всі ваші питання під час персональної консультації.',
+    'faq.more.btn': 'Записатися на безкоштовну консультацію',
+    
+    // Contact
+    'contact.title': 'Контакти',
+    'contact.description': 'Запишіться на прийом вже сьогодні',
+    'contact.name': 'Ім\'я',
+    'contact.phone': 'Телефон',
+    'contact.date': 'Бажана дата',
+    'contact.message': 'Повідомлення',
+    'contact.submit': 'Записатися',
+    'contact.address': 'Адреса',
+    'contact.hours': 'Години роботи'
+  }
+};
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('de');
+
+  const t = (key: string): string => {
+    return translations[language][key] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};

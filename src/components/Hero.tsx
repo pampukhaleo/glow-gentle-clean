@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -26,14 +29,13 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <h1 className="font-montserrat font-bold text-5xl md:text-7xl text-salon-teal mb-6 animate-fade-in">
-          Professionelle
+          {t('hero.title')}
           <br />
-          <span className="text-salon-teal-light">Laser-Haarentfernung</span>
+          <span className="text-salon-teal-light">{t('hero.subtitle')}</span>
         </h1>
         
         <p className="font-lora text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          Dauerhaft glatte Haut mit modernster Laser-Technologie. 
-          Sicher, effektiv und schmerzarm.
+          {t('hero.description')}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -42,7 +44,7 @@ export const Hero = () => {
             size="lg"
             className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat px-8 py-4 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl group"
           >
-            Kostenlose Beratung
+            {t('hero.consultation')}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           
@@ -52,7 +54,7 @@ export const Hero = () => {
             size="lg"
             className="border-salon-teal text-salon-teal hover:bg-salon-teal hover:text-white font-montserrat px-8 py-4 rounded-full text-lg transition-all duration-300"
           >
-            Mehr erfahren
+            {t('hero.learn')}
           </Button>
         </div>
       </div>
