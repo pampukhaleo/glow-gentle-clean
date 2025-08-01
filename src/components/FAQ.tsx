@@ -11,6 +11,13 @@ export const FAQ = ({ isVisible }: FAQProps) => {
   const { t } = useLanguage();
   const [openQuestion, setOpenQuestion] = useState<number | null>(0);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const faqs = [
     {
       question: t('faq.q1'),
@@ -100,7 +107,10 @@ export const FAQ = ({ isVisible }: FAQProps) => {
             <p className="font-lora text-gray-700 mb-6">
               {t('faq.more.desc')}
             </p>
-            <button className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat px-6 py-3 rounded-full transition-all duration-300">
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat px-6 py-3 rounded-full transition-all duration-300"
+            >
               {t('faq.more.btn')}
             </button>
           </div>
