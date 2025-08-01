@@ -13,28 +13,28 @@ export const FAQ = ({ isVisible }: FAQProps) => {
 
   const faqs = [
     {
-      question: "Wie funktioniert Laser-Haarentfernung?",
-      answer: "Der Laser sendet Lichtimpulse aus, die vom Melanin in den Haarwurzeln absorbiert werden. Die entstehende Wärme zerstört die Haarfollikel dauerhaft, ohne die umliegende Haut zu schädigen."
+      question: t('faq.q1'),
+      answer: t('faq.a1')
     },
     {
-      question: "Ist die Behandlung schmerzhaft?",
-      answer: "Die meisten Kunden beschreiben das Gefühl als leichtes Zwicken oder warmes Prickeln. Moderne Laser verfügen über Kühlsysteme, die den Komfort während der Behandlung erhöhen."
+      question: t('faq.q2'),
+      answer: t('faq.a2')
     },
     {
-      question: "Wie viele Behandlungen sind nötig?",
-      answer: "In der Regel sind 6-8 Behandlungen im Abstand von 4-6 Wochen erforderlich. Dies hängt von Ihrem Hauttyp, der Haarfarbe und dem Behandlungsbereich ab."
+      question: t('faq.q3'),
+      answer: t('faq.a3')
     },
     {
-      question: "Für welche Hauttypen ist die Behandlung geeignet?",
-      answer: "Moderne Laser können fast alle Hauttypen behandeln. Bei sehr heller Haut mit dunklen Haaren sind die Ergebnisse optimal. Eine individuelle Beratung klärt Ihre Eignung."
+      question: t('faq.q4'),
+      answer: t('faq.a4')
     },
     {
-      question: "Was kostet eine Laser-Haarentfernung?",
-      answer: "Die Kosten variieren je nach Behandlungsbereich. Einzelbehandlungen ab 59€ (Achseln) bis 199€ (Beine komplett). Pakete sind günstiger - gerne beraten wir Sie individuell."
+      question: t('faq.q5'),
+      answer: t('faq.a5')
     },
     {
-      question: "Welche Nebenwirkungen können auftreten?",
-      answer: "Leichte Rötungen und Schwellungen sind normal und klingen binnen weniger Stunden ab. Bei fachgerechter Anwendung sind schwere Nebenwirkungen sehr selten."
+      question: t('faq.q6'),
+      answer: t('faq.a6')
     }
   ];
 

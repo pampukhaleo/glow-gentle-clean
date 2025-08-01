@@ -79,41 +79,41 @@ export const Benefits = ({ isVisible }: BenefitsProps) => {
         <div className="text-center mt-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
             <h3 className="font-montserrat font-semibold text-2xl text-salon-teal mb-6">
-              Kostenvergleich über 5 Jahre
+              {t('benefits.cost.title')}
             </h3>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="text-center">
                 <h4 className="font-montserrat font-medium text-lg text-gray-700 mb-3">
-                  Herkömmliche Methoden
+                  {t('benefits.cost.traditional')}
                 </h4>
                 <div className="space-y-2 text-sm font-lora text-gray-600">
-                  <div>Rasierer & Schaum: ~600€</div>
-                  <div>Waxing alle 6 Wochen: ~1.300€</div>
-                  <div>Zeit & Aufwand: unbezahlbar</div>
+                  <div>{t('benefits.cost.traditional.razor')}</div>
+                  <div>{t('benefits.cost.traditional.waxing')}</div>
+                  <div>{t('benefits.cost.traditional.time')}</div>
                 </div>
                 <div className="font-montserrat font-bold text-xl text-red-500 mt-4">
-                  ~1.900€+
+                  {t('benefits.cost.traditional.total')}
                 </div>
               </div>
               
               <div className="text-center">
                 <h4 className="font-montserrat font-medium text-lg text-salon-teal mb-3">
-                  Laser-Haarentfernung
+                  {t('benefits.cost.laser')}
                 </h4>
                 <div className="space-y-2 text-sm font-lora text-gray-600">
-                  <div>8 Behandlungen: ~800€</div>
-                  <div>Nachbehandlungen: ~200€</div>
-                  <div>Dauerhaft glatte Haut</div>
+                  <div>{t('benefits.cost.laser.treatments')}</div>
+                  <div>{t('benefits.cost.laser.followup')}</div>
+                  <div>{t('benefits.cost.laser.result')}</div>
                 </div>
                 <div className="font-montserrat font-bold text-xl text-salon-teal mt-4">
-                  ~1.000€
+                  {t('benefits.cost.laser.total')}
                 </div>
               </div>
             </div>
             
             <p className="font-lora text-sm text-gray-600 mt-6">
-              * Beispielrechnung für Beine komplett. Individuelle Preise nach Beratung.
+              {t('benefits.cost.note')}
             </p>
           </div>
         </div>

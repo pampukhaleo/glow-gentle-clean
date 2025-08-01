@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -64,7 +65,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h3 className="font-montserrat font-semibold text-2xl text-salon-teal mb-6">
-              Beratungstermin vereinbaren
+              {t('contact.form.title')}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -116,12 +117,12 @@ export const Contact = ({ isVisible }: ContactProps) => {
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:border-salon-teal focus:outline-none"
                   >
-                    <option value="">Bitte wählen</option>
-                    <option value="gesicht">Gesicht & Hals</option>
-                    <option value="achseln">Achseln</option>
-                    <option value="beine">Beine komplett</option>
-                    <option value="bikini">Bikinizone</option>
-                    <option value="komplett">Komplettbehandlung</option>
+                    <option value="">{t('contact.service.placeholder')}</option>
+                    <option value="gesicht">{t('contact.service.face')}</option>
+                    <option value="achseln">{t('contact.service.armpits')}</option>
+                    <option value="beine">{t('contact.service.legs')}</option>
+                    <option value="bikini">{t('contact.service.bikini')}</option>
+                    <option value="komplett">{t('contact.service.full')}</option>
                   </select>
                 </div>
                 <div>
@@ -161,7 +162,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
           <div className="space-y-8">
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h3 className="font-montserrat font-semibold text-2xl text-salon-teal mb-6">
-                Kontakt Informationen
+                {t('contact.info.title')}
               </h3>
               
               <div className="space-y-4">
@@ -190,9 +191,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                   <Clock className="w-5 h-5 text-salon-teal mt-1" />
                   <div className="font-lora text-gray-700">
                     <p>{t('contact.hours')}:</p>
-                    <p>Mo-Fr: 9:00 - 19:00</p>
-                    <p>Sa: 9:00 - 16:00</p>
-                    <p>So: Geschlossen</p>
+                    <div className="whitespace-pre-line">{t('contact.hours.detail')}</div>
                   </div>
                 </div>
               </div>
@@ -221,15 +220,15 @@ export const Contact = ({ isVisible }: ContactProps) => {
               LaserBeauty
             </div>
             <p className="font-lora text-gray-600 mb-6">
-              Professionelle Laser-Haarentfernung in Berlin
+              {t('contact.footer.tagline')}
             </p>
             <div className="flex justify-center space-x-6 text-sm font-lora text-gray-500">
-              <a href="#" className="hover:text-salon-teal transition-colors">Datenschutz</a>
-              <a href="#" className="hover:text-salon-teal transition-colors">Impressum</a>
-              <a href="#" className="hover:text-salon-teal transition-colors">AGB</a>
+              <a href="#" className="hover:text-salon-teal transition-colors">{t('contact.footer.privacy')}</a>
+              <a href="#" className="hover:text-salon-teal transition-colors">{t('contact.footer.imprint')}</a>
+              <a href="#" className="hover:text-salon-teal transition-colors">{t('contact.footer.terms')}</a>
             </div>
             <p className="font-lora text-gray-500 text-sm mt-4">
-              © 2024 LaserBeauty Salon. Alle Rechte vorbehalten.
+              {t('contact.footer.copyright')}
             </p>
           </div>
         </div>
