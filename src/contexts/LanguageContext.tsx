@@ -25,7 +25,7 @@ const translations = {
     'hero.title': 'Professionelle',
     'hero.subtitle': 'Laser-Haarentfernung',
     'hero.description': 'Dauerhaft glatte Haut mit modernster Laser-Technologie. Sicher, effektiv und schmerzarm.',
-    'hero.consultation': 'Kostenlose Beratung',
+    'hero.consultation': 'Termin buchen',
     'hero.learn': 'Mehr erfahren',
     
     // About
@@ -51,7 +51,7 @@ const translations = {
     'services.bikini.desc': 'Diskrete und schonende Behandlung sensibler Bereiche',
     'services.popular': 'Beliebt',
     'services.from': 'Ab',
-    'services.consultation.btn': 'Kostenlose Beratung vereinbaren →',
+    'services.consultation.btn': 'Termin buchen →',
     
     // Procedure  
     'procedure.title': 'Behandlungsablauf',
@@ -104,7 +104,7 @@ const translations = {
     'gallery.before': 'Vorher',
     'gallery.after': 'Nachher',
     'gallery.after-treatments': 'Nach 6 Behandlungen',
-    'gallery.cta': 'Beratungstermin vereinbaren',
+    'gallery.cta': 'Termin buchen',
     
     // Reviews
     'reviews.title': 'Kundenbewertungen',
@@ -127,7 +127,7 @@ const translations = {
     'faq.a6': 'Leichte Rötungen und Schwellungen sind normal und klingen binnen weniger Stunden ab. Bei fachgerechter Anwendung sind schwere Nebenwirkungen sehr selten.',
     'faq.more.title': 'Weitere Fragen?',
     'faq.more.desc': 'Unser erfahrenes Team beantwortet gerne alle Ihre Fragen in einem persönlichen Beratungsgespräch.',
-    'faq.more.btn': 'Kostenlose Beratung buchen',
+    'faq.more.btn': 'Termin buchen',
     
     // Contact
     'contact.title': 'Kontakt',
@@ -169,7 +169,7 @@ const translations = {
     'hero.title': 'Професійна',
     'hero.subtitle': 'лазерна епіляція',
     'hero.description': 'Назавжди гладенька шкіра з найсучаснішими лазерними технологіями. Безпечно, ефективно та безболісно.',
-    'hero.consultation': 'Безкоштовна консультація',
+    'hero.consultation': 'Записатися',
     'hero.learn': 'Дізнатися більше',
     
     // About
@@ -195,7 +195,7 @@ const translations = {
     'services.bikini.desc': 'Дискретна та делікатна обробка чутливих зон',
     'services.popular': 'Популярно',
     'services.from': 'Від',
-    'services.consultation.btn': 'Записатися на безкоштовну консультацію →',
+    'services.consultation.btn': 'Записатися →',
     
     // Procedure
     'procedure.title': 'Процес процедури',
@@ -248,7 +248,7 @@ const translations = {
     'gallery.before': 'До',
     'gallery.after': 'Після',
     'gallery.after-treatments': 'Після 6 процедур',
-    'gallery.cta': 'Записатися на консультацію',
+    'gallery.cta': 'Записатися',
     
     // Reviews
     'reviews.title': 'Відгуки клієнтів',
@@ -271,7 +271,7 @@ const translations = {
     'faq.a6': 'Легкі почервоніння та набряки є нормальними і зникають протягом кількох годин. При правильному застосуванні серйозні побічні ефекти дуже рідкісні.',
     'faq.more.title': 'Ще питання?',
     'faq.more.desc': 'Наша досвідчена команда з радістю відповість на всі ваші питання під час персональної консультації.',
-    'faq.more.btn': 'Записатися на безкоштовну консультацію',
+    'faq.more.btn': 'Записатися',
     
     // Contact
     'contact.title': 'Контакти',
