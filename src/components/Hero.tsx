@@ -23,13 +23,13 @@ export const Hero = () => {
         }}
       />
       
-      {/* Logo background */}
+      {/* Logo background - shifted to the right */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div 
-          className="w-96 h-96 md:w-[600px] md:h-[600px] opacity-10 bg-no-repeat bg-center bg-contain"
+          className="w-96 h-96 md:w-[500px] md:h-[500px] opacity-15 bg-no-repeat bg-center bg-contain transform translate-x-32 md:translate-x-48"
           style={{
             backgroundImage: `url('/lovable-uploads/72c56bed-52df-4016-b3d1-753febbcdc13.png')`,
-            filter: 'grayscale(100%) contrast(120%)',
+            filter: 'grayscale(80%) contrast(110%)',
           }}
         />
       </div>
