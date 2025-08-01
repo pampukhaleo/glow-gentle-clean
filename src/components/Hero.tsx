@@ -28,17 +28,28 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="font-montserrat font-bold text-5xl md:text-7xl text-salon-teal mb-6 animate-fade-in">
+        {/* Logo */}
+        <div className="mb-8 animate-fade-in">
+          <div className="mx-auto w-32 h-32 md:w-40 md:h-40 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-white/30">
+            <img 
+              src="/lovable-uploads/72c56bed-52df-4016-b3d1-753febbcdc13.png" 
+              alt="LaserBeauty Logo" 
+              className="w-20 h-20 md:w-24 md:h-24 object-contain filter drop-shadow-lg"
+            />
+          </div>
+        </div>
+
+        <h1 className="font-montserrat font-bold text-5xl md:text-7xl text-salon-teal mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           {t('hero.title')}
           <br />
           <span className="text-salon-teal-light">{t('hero.subtitle')}</span>
         </h1>
         
-        <p className="font-lora text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <p className="font-lora text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
           {t('hero.description')}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <Button
             onClick={() => scrollToSection('contact')}
             size="lg"
