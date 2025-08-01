@@ -1,12 +1,14 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ReviewsProps {
   isVisible: Record<string, boolean>;
 }
 
 export const Reviews = ({ isVisible }: ReviewsProps) => {
+  const { t } = useLanguage();
   const [currentReview, setCurrentReview] = useState(0);
 
   const reviews = [
@@ -52,10 +54,10 @@ export const Reviews = ({ isVisible }: ReviewsProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Kundenbewertungen
+            {t('reviews.title')}
           </h2>
           <p className="font-lora text-lg text-gray-700 max-w-2xl mx-auto">
-            Was unsere zufriedenen Kundinnen über ihre Erfahrungen sagen
+            {t('reviews.description')}
           </p>
         </div>
 

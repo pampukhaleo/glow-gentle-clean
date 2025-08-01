@@ -1,31 +1,34 @@
 
 import { MessageSquare, Search, Zap, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProcedureProps {
   isVisible: Record<string, boolean>;
 }
 
 export const Procedure = ({ isVisible }: ProcedureProps) => {
+  const { t } = useLanguage();
+  
   const steps = [
     {
       icon: MessageSquare,
-      title: "Beratung",
-      description: "Persönliches Beratungsgespräch und Hautanalyse zur optimalen Behandlungsplanung"
+      title: t('procedure.consultation'),
+      description: t('procedure.consultation.desc')
     },
     {
       icon: Search,
-      title: "Vorbereitung", 
-      description: "Professionelle Vorbereitung der Haut und Einstellung der Laser-Parameter"
+      title: t('procedure.preparation'), 
+      description: t('procedure.preparation.desc')
     },
     {
       icon: Zap,
-      title: "Behandlung",
-      description: "Schonende Laser-Behandlung mit modernster IPL-Technologie"
+      title: t('procedure.treatment'),
+      description: t('procedure.treatment.desc')
     },
     {
       icon: Heart,
-      title: "Nachsorge",
-      description: "Pflegeempfehlungen und Terminplanung für optimale Ergebnisse"
+      title: t('procedure.aftercare'),
+      description: t('procedure.aftercare.desc')
     }
   ];
 
@@ -40,10 +43,10 @@ export const Procedure = ({ isVisible }: ProcedureProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Behandlungsablauf
+            {t('procedure.title')}
           </h2>
           <p className="font-lora text-lg text-gray-700 max-w-2xl mx-auto">
-            In vier einfachen Schritten zu dauerhaft glatter Haut
+            {t('procedure.description')}
           </p>
         </div>
 
@@ -80,12 +83,10 @@ export const Procedure = ({ isVisible }: ProcedureProps) => {
         <div className="text-center mt-16">
           <div className="bg-salon-cream/50 rounded-2xl p-8 max-w-3xl mx-auto">
             <h3 className="font-montserrat font-semibold text-xl text-salon-teal mb-4">
-              Behandlungsdauer & Ergebnisse
+              {t('procedure.duration.title')}
             </h3>
             <p className="font-lora text-gray-700 leading-relaxed">
-              Eine Sitzung dauert je nach Behandlungsbereich 15-90 Minuten. 
-              Für optimale Ergebnisse sind 6-8 Behandlungen im Abstand von 4-6 Wochen empfohlen. 
-              Erste Ergebnisse sind bereits nach der 2. Behandlung sichtbar.
+              {t('procedure.duration.desc')}
             </p>
           </div>
         </div>

@@ -1,36 +1,39 @@
 
 import { CheckCircle, Clock, Shield, Star, Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BenefitsProps {
   isVisible: Record<string, boolean>;
 }
 
 export const Benefits = ({ isVisible }: BenefitsProps) => {
+  const { t } = useLanguage();
+  
   const benefits = [
     {
       icon: CheckCircle,
-      title: "Dauerhaft glatte Haut",
-      description: "Bis zu 95% weniger Haare nach vollständiger Behandlungsserie"
+      title: t('benefits.smooth'),
+      description: t('benefits.smooth.desc')
     },
     {
       icon: Clock,
-      title: "Zeitersparnis",
-      description: "Keine tägliche Rasur oder regelmäßige Waxing-Termine mehr nötig"
+      title: t('benefits.time'),
+      description: t('benefits.time.desc')
     },
     {
       icon: Shield,
-      title: "Schonend & sicher",
-      description: "Modernste Laser-Technologie für maximalen Komfort bei der Behandlung"
+      title: t('benefits.safe'),
+      description: t('benefits.safe.desc')
     },
     {
       icon: Star,
-      title: "Für alle Hauttypen",
-      description: "Geeignet für verschiedene Haut- und Haartypen dank anpassbarer Parameter"
+      title: t('benefits.suitable'),
+      description: t('benefits.suitable.desc')
     },
     {
       icon: Heart,
-      title: "Keine Hautreizungen",
-      description: "Vermeidung von Rasurbrand, eingewachsenen Haaren und Hautirritationen"
+      title: t('benefits.no-irritation'),
+      description: t('benefits.no-irritation.desc')
     }
   ];
 
@@ -45,10 +48,10 @@ export const Benefits = ({ isVisible }: BenefitsProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Ihre Vorteile
+            {t('benefits.title')}
           </h2>
           <p className="font-lora text-lg text-gray-700 max-w-2xl mx-auto">
-            Warum sich immer mehr Menschen für professionelle Laser-Haarentfernung entscheiden
+            {t('benefits.description')}
           </p>
         </div>
 

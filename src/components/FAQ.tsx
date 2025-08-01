@@ -1,12 +1,14 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface FAQProps {
   isVisible: Record<string, boolean>;
 }
 
 export const FAQ = ({ isVisible }: FAQProps) => {
+  const { t } = useLanguage();
   const [openQuestion, setOpenQuestion] = useState<number | null>(0);
 
   const faqs = [
@@ -51,10 +53,10 @@ export const FAQ = ({ isVisible }: FAQProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Häufige Fragen
+            {t('faq.title')}
           </h2>
           <p className="font-lora text-lg text-gray-700 max-w-2xl mx-auto">
-            Alles was Sie über Laser-Haarentfernung wissen möchten
+            {t('faq.description')}
           </p>
         </div>
 
@@ -93,14 +95,13 @@ export const FAQ = ({ isVisible }: FAQProps) => {
         <div className="text-center mt-16">
           <div className="bg-salon-cream/50 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="font-montserrat font-semibold text-xl text-salon-teal mb-4">
-              Weitere Fragen?
+              {t('faq.more.title')}
             </h3>
             <p className="font-lora text-gray-700 mb-6">
-              Unser erfahrenes Team beantwortet gerne alle Ihre Fragen in einem 
-              persönlichen Beratungsgespräch.
+              {t('faq.more.desc')}
             </p>
             <button className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat px-6 py-3 rounded-full transition-all duration-300">
-              Kostenlose Beratung buchen
+              {t('faq.more.btn')}
             </button>
           </div>
         </div>

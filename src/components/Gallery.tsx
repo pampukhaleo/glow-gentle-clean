@@ -1,24 +1,28 @@
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 interface GalleryProps {
   isVisible: Record<string, boolean>;
 }
 
 export const Gallery = ({ isVisible }: GalleryProps) => {
+  const { t } = useLanguage();
+  
   const beforeAfterImages = [
     {
       before: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=300&fit=crop",
       after: "https://images.unsplash.com/photo-1571019613914-85f342c6a11e?w=400&h=300&fit=crop",
-      area: "Beine"
+      area: t('gallery.legs')
     },
     {
       before: "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=300&fit=crop",
       after: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=300&fit=crop", 
-      area: "Achseln"
+      area: t('gallery.armpits')
     },
     {
       before: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=300&fit=crop",
       after: "https://images.unsplash.com/photo-1571019613914-85f342c6a11e?w=400&h=300&fit=crop",
-      area: "Gesicht"
+      area: t('gallery.face')
     }
   ];
 
@@ -33,10 +37,10 @@ export const Gallery = ({ isVisible }: GalleryProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Vorher & Nachher
+            {t('gallery.title')}
           </h2>
           <p className="font-lora text-lg text-gray-700 max-w-2xl mx-auto">
-            Überzeugen Sie sich von den beeindruckenden Ergebnissen unserer Behandlungen
+            {t('gallery.description')}
           </p>
         </div>
 
@@ -56,7 +60,7 @@ export const Gallery = ({ isVisible }: GalleryProps) => {
                       className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs font-montserrat">
-                      Vorher
+                      {t('gallery.before')}
                     </div>
                   </div>
                   
@@ -67,13 +71,13 @@ export const Gallery = ({ isVisible }: GalleryProps) => {
                       className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute bottom-2 left-2 bg-salon-teal/90 text-white px-2 py-1 rounded text-xs font-montserrat">
-                      Nachher
+                      {t('gallery.after')}
                     </div>
                   </div>
                 </div>
                 
                 <p className="font-lora text-sm text-gray-600 text-center">
-                  Nach 6 Behandlungen
+                  {t('gallery.after-treatments')}
                 </p>
               </div>
             </div>
@@ -85,7 +89,7 @@ export const Gallery = ({ isVisible }: GalleryProps) => {
             Möchten Sie Ihr eigenes Vorher-Nachher Ergebnis sehen?
           </p>
           <button className="bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg">
-            Beratungstermin vereinbaren
+            {t('gallery.cta')}
           </button>
         </div>
       </div>

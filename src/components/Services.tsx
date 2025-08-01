@@ -1,38 +1,41 @@
 
 import { Zap, Heart, Star, Shield } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ServicesProps {
   isVisible: Record<string, boolean>;
 }
 
 export const Services = ({ isVisible }: ServicesProps) => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: Zap,
-      title: "Gesicht & Hals",
-      description: "Präzise Behandlung für empfindliche Gesichtsbereiche",
-      price: "Ab 89€",
+      title: t('services.face'),
+      description: t('services.face.desc'),
+      price: `${t('services.from')} 89€`,
       popular: false
     },
     {
       icon: Heart,
-      title: "Achseln",
-      description: "Schnelle und effektive Behandlung für glatte Achseln",
-      price: "Ab 59€",
+      title: t('services.armpits'),
+      description: t('services.armpits.desc'),
+      price: `${t('services.from')} 59€`,
       popular: true
     },
     {
       icon: Star,
-      title: "Beine komplett",
-      description: "Vollständige Beinbehandlung für dauerhaft glatte Haut",
-      price: "Ab 199€",
+      title: t('services.legs'),
+      description: t('services.legs.desc'),
+      price: `${t('services.from')} 199€`,
       popular: true
     },
     {
       icon: Shield,
-      title: "Bikinizone",
-      description: "Diskrete und schonende Behandlung sensibler Bereiche",
-      price: "Ab 79€",
+      title: t('services.bikini'),
+      description: t('services.bikini.desc'),
+      price: `${t('services.from')} 79€`,
       popular: false
     }
   ];
@@ -48,11 +51,10 @@ export const Services = ({ isVisible }: ServicesProps) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-salon-teal mb-8">
-            Unsere Leistungen
+            {t('services.title')}
           </h2>
           <p className="font-lora text-lg text-gray-700 max-w-2xl mx-auto">
-            Professionelle Laser-Haarentfernung für alle Körperbereiche mit 
-            modernster IPL- und Dioden-Laser Technologie
+            {t('services.description')}
           </p>
         </div>
 
@@ -66,7 +68,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
             >
               {service.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-salon-teal text-white px-4 py-1 rounded-full text-sm font-montserrat font-medium">
-                  Beliebt
+                  {t('services.popular')}
                 </div>
               )}
               
@@ -94,7 +96,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
             * Preise können je nach Behandlungsbereich variieren
           </p>
           <button className="font-montserrat text-salon-teal hover:text-salon-teal-light transition-colors font-medium">
-            Kostenlose Beratung vereinbaren →
+            {t('services.consultation.btn')}
           </button>
         </div>
       </div>
