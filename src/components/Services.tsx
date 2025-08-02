@@ -62,8 +62,44 @@ export const Services = ({ isVisible }: ServicesProps) => {
     }
   ];
 
-  // Женские пакеты (временно пустой массив)
-  const womenPackages = [];
+  // Женские пакеты с переводами
+  const womenPackages = [
+    {
+      title: 'Smooth Basic',
+      description: language === 'de' ? 'Achseln + Intim komplett + Gesäßbereich' : 'Пахви + інтим повністю + зона сідниць',
+      price: '100€',
+      originalPrice: '110€',
+      popular: false
+    },
+    {
+      title: 'Beauty Legs',
+      description: language === 'de' ? 'Unterschenkel + Intim komplett + Gesäßbereich' : 'Гомілки + інтим повністю + зона сідниць',
+      price: '120€',
+      originalPrice: '130€',
+      popular: false
+    },
+    {
+      title: 'Soft Touch',
+      description: language === 'de' ? 'Arme komplett + Achseln' : 'Руки повністю + пахви',
+      price: '120€',
+      originalPrice: '130€',
+      popular: false
+    },
+    {
+      title: 'Baby Skin',
+      description: language === 'de' ? 'Gesicht komplett + Hals' : 'Обличчя повністю + шия',
+      price: '80€',
+      originalPrice: '90€',
+      popular: true
+    },
+    {
+      title: 'Smooth Premium',
+      description: language === 'de' ? 'Beine komplett + Intim komplett + Gesäßbereich + Achseln' : 'Ноги повністю + інтим повністю + зона сідниць + пахви',
+      price: '180€',
+      originalPrice: '210€',
+      popular: true
+    }
+  ];
 
   // Отдельные услуги для мужчин - сгруппированные с переводами
   const menServiceGroups = [
@@ -272,23 +308,21 @@ export const Services = ({ isVisible }: ServicesProps) => {
           <TabsContent value="women">
             <div className="space-y-12">
               {/* Женские пакеты */}
-              {womenPackages.length > 0 && (
-                <div>
-                  <div className="text-center mb-8">
-                    <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
-                      {language === 'de' ? 'Beliebte Frauen-Pakete' : 'Популярні жіночі пакети'}
-                    </h3>
-                    <p className="text-gray-600 font-lora">
-                      {language === 'de' ? 'Sparen Sie bis zu 40% mit unseren speziellen Angeboten' : 'Економте до 40% з нашими спеціальними пропозиціями'}
-                    </p>
-                  </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {womenPackages.map((pkg, index) => (
-                      <PackageCard key={index} pkg={pkg} index={index} />
-                    ))}
-                  </div>
+              <div>
+                <div className="text-center mb-8">
+                  <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
+                    {language === 'de' ? 'Beliebte Frauen-Pakete' : 'Популярні жіночі пакети'}
+                  </h3>
+                  <p className="text-gray-600 font-lora">
+                    {language === 'de' ? 'Sparen Sie bis zu 15% mit unseren speziellen Angeboten' : 'Економте до 15% з нашими спеціальними пропозиціями'}
+                  </p>
                 </div>
-              )}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                  {womenPackages.map((pkg, index) => (
+                    <PackageCard key={index} pkg={pkg} index={index} />
+                  ))}
+                </div>
+              </div>
 
               {/* Отдельные женские услуги */}
               <div>
