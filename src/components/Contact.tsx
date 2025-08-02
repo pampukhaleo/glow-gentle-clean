@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +20,22 @@ export const Contact = ({ isVisible }: ContactProps) => {
     date: "",
     message: ""
   });
+
+  useEffect(() => {
+    const handleServiceSelection = (event: CustomEvent) => {
+      const { serviceId } = event.detail;
+      setFormData(prev => ({
+        ...prev,
+        services: [serviceId]
+      }));
+    };
+
+    window.addEventListener('selectService', handleServiceSelection as EventListener);
+    
+    return () => {
+      window.removeEventListener('selectService', handleServiceSelection as EventListener);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

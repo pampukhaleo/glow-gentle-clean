@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -152,6 +151,42 @@ export const ServiceSelector = ({ selectedServices, onServicesChange }: ServiceS
     { id: 'men-shins', name: language === 'de' ? 'Unterschenkel' : 'Гомілки', price: '80€', category: language === 'de' ? 'Beine' : 'Ноги' },
     { id: 'men-legs-complete', name: language === 'de' ? 'Beine komplett' : 'Ноги повністю', price: '140€', category: language === 'de' ? 'Beine' : 'Ноги' }
   ];
+
+  const serviceIdToPackageMap = {
+    // Women packages
+    'women-smooth-basic': 'women-smooth-basic',
+    'women-beauty-legs': 'women-beauty-legs', 
+    'women-soft-touch': 'women-soft-touch',
+    'women-baby-skin': 'women-baby-skin',
+    'women-smooth-premium': 'women-smooth-premium',
+    'women-full-body-complete': 'women-full-body-complete',
+    
+    // Men packages
+    'men-face-&-style': 'men-face-style',
+    'men-fresh-start': 'men-fresh-start',
+    'men-business-rucken': 'men-business-back',
+    'men-oberkorper-stark': 'men-upper-strong',
+    'men-intim-deluxe': 'men-intimate-deluxe',
+    'men-all-inclusive-man': 'men-all-inclusive',
+    'men-full-body-complete': 'men-full-body-complete'
+  };
+
+  useEffect(() => {
+    const handleServiceSelection = (event: CustomEvent) => {
+      const { serviceId } = event.detail;
+      const mappedServiceId = serviceIdToPackageMap[serviceId] || serviceId;
+      
+      if (mappedServiceId && !selectedServices.includes(mappedServiceId)) {
+        onServicesChange([...selectedServices, mappedServiceId]);
+      }
+    };
+
+    window.addEventListener('selectService', handleServiceSelection as EventListener);
+    
+    return () => {
+      window.removeEventListener('selectService', handleServiceSelection as EventListener);
+    };
+  }, [selectedServices, onServicesChange]);
 
   const toggleService = (serviceId: string) => {
     const newServices = selectedServices.includes(serviceId)

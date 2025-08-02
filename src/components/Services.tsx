@@ -16,6 +16,20 @@ export const Services = ({ isVisible }: ServicesProps) => {
     }
   };
 
+  const handlePackageClick = (packageId: string) => {
+    // Scroll to contact section
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+      
+      // Trigger service selection after a short delay to ensure the contact section is visible
+      setTimeout(() => {
+        const event = new CustomEvent('selectService', { detail: { serviceId: packageId } });
+        window.dispatchEvent(event);
+      }, 500);
+    }
+  };
+
   // Мужские пакеты с переводами
   const menPackages = [
     {
@@ -208,12 +222,13 @@ export const Services = ({ isVisible }: ServicesProps) => {
     }
   ];
 
-  const PackageCard = ({ pkg, index }) => (
+  const PackageCard = ({ pkg, index, gender }) => (
     <div
       key={index}
-      className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative group border-2 ${
+      className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative group border-2 cursor-pointer ${
         pkg.popular ? 'border-salon-teal ring-2 ring-salon-teal/20' : 'border-gray-100'
       }`}
+      onClick={() => handlePackageClick(`${gender}-${pkg.title.toLowerCase().replace(/\s+/g, '-').replace(/ü/g, 'u').replace(/ä/g, 'a').replace(/ö/g, 'o')}`)}
     >
       {pkg.popular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-salon-teal to-salon-teal-light text-white px-4 py-1 rounded-full text-sm font-montserrat font-medium shadow-lg">
@@ -243,6 +258,8 @@ export const Services = ({ isVisible }: ServicesProps) => {
       <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium inline-block">
         {language === 'de' ? 'Ersparnis' : 'Економія'} {parseInt(pkg.originalPrice) - parseInt(pkg.price)}€
       </div>
+      
+      <div className="absolute inset-0 bg-salon-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
     </div>
   );
 
@@ -322,7 +339,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {womenPackages.map((pkg, index) => (
-                    <PackageCard key={index} pkg={pkg} index={index} />
+                    <PackageCard key={index} pkg={pkg} index={index} gender="women" />
                   ))}
                 </div>
               </div>
@@ -342,7 +359,10 @@ export const Services = ({ isVisible }: ServicesProps) => {
               </div>
 
               {/* Полная эпиляция тела - отдельный блок для женщин */}
-              <div className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white">
+              <div 
+                className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white cursor-pointer hover:shadow-xl transition-all duration-300"
+                onClick={() => handlePackageClick('women-full-body-complete')}
+              >
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Sparkles className="w-8 h-8" />
                 </div>
@@ -383,7 +403,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {menPackages.map((pkg, index) => (
-                    <PackageCard key={index} pkg={pkg} index={index} />
+                    <PackageCard key={index} pkg={pkg} index={index} gender="men" />
                   ))}
                 </div>
               </div>
@@ -403,7 +423,10 @@ export const Services = ({ isVisible }: ServicesProps) => {
               </div>
 
               {/* Полная эпиляция тела - отдельный блок */}
-              <div className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white">
+              <div 
+                className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white cursor-pointer hover:shadow-xl transition-all duration-300"
+                onClick={() => handlePackageClick('men-full-body-complete')}
+              >
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Sparkles className="w-8 h-8" />
                 </div>
