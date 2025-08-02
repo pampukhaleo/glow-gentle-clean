@@ -14,7 +14,7 @@ export const Reviews = ({ isVisible }: ReviewsProps) => {
   const reviews = [
     {
       name: "Sarah M.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       rating: 5,
       text: "Ich bin absolut begeistert! Nach 6 Behandlungen sind meine Beine komplett haarfrei. Das Team ist sehr professionell und die Behandlung war viel angenehmer als erwartet.",
       treatment: "Beine komplett"
@@ -117,25 +117,6 @@ export const Reviews = ({ isVisible }: ReviewsProps) => {
                 }`}
               />
             ))}
-          </div>
-        </div>
-
-        <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-6 shadow-md max-w-2xl mx-auto">
-            <h3 className="font-montserrat font-semibold text-xl text-salon-teal mb-4">
-              Über 500 positive Bewertungen
-            </h3>
-            <div className="flex justify-center items-center space-x-4 mb-4">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <span className="font-montserrat font-bold text-2xl text-gray-700">4.9/5</span>
-            </div>
-            <p className="font-lora text-gray-600">
-              Durchschnittliche Bewertung basierend auf Google Reviews und Kundenfeedback
-            </p>
           </div>
         </div>
       </div>
