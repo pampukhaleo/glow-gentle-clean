@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ServiceSelector } from "./ServiceSelector";
 
 interface ContactProps {
   isVisible: Record<string, boolean>;
@@ -16,7 +17,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
     name: "",
     phone: "",
     email: "",
-    service: "",
+    services: [] as string[],
     date: "",
     message: ""
   });
@@ -30,16 +31,23 @@ export const Contact = ({ isVisible }: ContactProps) => {
       name: "",
       phone: "",
       email: "",
-      service: "",
+      services: [],
       date: "",
       message: ""
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleServicesChange = (services: string[]) => {
+    setFormData({
+      ...formData,
+      services
     });
   };
 
@@ -108,33 +116,25 @@ export const Contact = ({ isVisible }: ContactProps) => {
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-lora text-gray-700 mb-2 block">{t('contact.service')}</label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:border-salon-teal focus:outline-none"
-                  >
-                    <option value="">{t('contact.service.placeholder')}</option>
-                    <option value="gesicht">{t('contact.service.face')}</option>
-                    <option value="achseln">{t('contact.service.armpits')}</option>
-                    <option value="beine">{t('contact.service.legs')}</option>
-                    <option value="bikini">{t('contact.service.bikini')}</option>
-                    <option value="komplett">{t('contact.service.full')}</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="font-lora text-gray-700 mb-2 block">{t('contact.date')}</label>
-                  <Input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="border-gray-300 focus:border-salon-teal"
-                  />
-                </div>
+              <div>
+                <label className="font-lora text-gray-700 mb-2 block">
+                  {t('contact.service')} *
+                </label>
+                <ServiceSelector
+                  selectedServices={formData.services}
+                  onServicesChange={handleServicesChange}
+                />
+              </div>
+
+              <div>
+                <label className="font-lora text-gray-700 mb-2 block">{t('contact.date')}</label>
+                <Input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="border-gray-300 focus:border-salon-teal"
+                />
               </div>
 
               <div>
