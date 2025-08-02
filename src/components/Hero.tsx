@@ -15,9 +15,9 @@ export const Hero = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with parallax effect */}
+      {/* Background without parallax effect */}
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-salon-cream via-salon-beige to-salon-muted animate-parallax"
+        className="absolute inset-0 bg-gradient-to-br from-salon-cream via-salon-beige to-salon-muted"
         style={{
           backgroundImage: `linear-gradient(135deg, #EDE1CF 0%, #D9C5BC 50%, #B6ADAF 100%)`,
         }}
