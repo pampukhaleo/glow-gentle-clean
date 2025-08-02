@@ -5,7 +5,9 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
+import { PreTreatment } from "@/components/PreTreatment";
 import { Procedure } from "@/components/Procedure";
+import { PostTreatment } from "@/components/PostTreatment";
 import { Benefits } from "@/components/Benefits";
 import { Reviews } from "@/components/Reviews";
 import { FAQ } from "@/components/FAQ";
@@ -42,7 +44,9 @@ const IndexContent = () => {
         <Hero />
         <About isVisible={isVisible} />
         <Services isVisible={isVisible} />
+        <PreTreatment isVisible={isVisible} />
         <Procedure isVisible={isVisible} />
+        <PostTreatment isVisible={isVisible} />
         <Benefits isVisible={isVisible} />
         <Reviews isVisible={isVisible} />
         <FAQ isVisible={isVisible} />

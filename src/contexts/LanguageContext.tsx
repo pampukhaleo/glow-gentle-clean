@@ -119,6 +119,15 @@ const translations = {
     'women.services.full-body': 'Ganzer Körper',
     'women.services.full-body.complete': 'Ganzkörper',
     
+    // Pre-treatment rules
+    'pretreatment.title': 'Wichtige Hinweise vor der Laser-Haarentfernung',
+    'pretreatment.rule1': '14 Tage vor der Behandlung: kein Sonnenbad, Solarium oder Selbstbräuner.',
+    'pretreatment.rule2': '24 Stunden vorher: die Haut gründlich rasieren (nicht wachsen oder zupfen).',
+    'pretreatment.rule3': 'Keine Cremes, Öle oder Deodorants am Tag der Behandlung verwenden.',
+    'pretreatment.rule4': 'Keine Peelings oder aggressive Pflegeprodukte auf die zu behandelnde Stelle in den letzten 3 Tagen.',
+    'pretreatment.rule5': 'Informieren Sie uns, wenn Sie Medikamente einnehmen oder Hautprobleme haben.',
+    'pretreatment.rule6': 'Tragen Sie bequeme Kleidung, die die behandelte Zone nicht reizt.',
+    
     // Procedure  
     'procedure.title': 'Behandlungsablauf',
     'procedure.description': 'In vier einfachen Schritten zu dauerhaft glatter Haut',
@@ -132,6 +141,16 @@ const translations = {
     'procedure.aftercare.desc': 'Pflegeempfehlungen und Terminplanung für optimale Ergebnisse',
     'procedure.duration.title': 'Behandlungsdauer & Ergebnisse',
     'procedure.duration.desc': 'Eine Sitzung dauert je nach Behandlungsbereich 15-90 Minuten. Für optimale Ergebnisse sind 6-8 Behandlungen im Abstand von 4-6 Wochen empfohlen. Erste Ergebnisse sind bereits nach der 2. Behandlung sichtbar.',
+    
+    // Post-treatment rules
+    'posttreatment.title': 'Was Sie vermeiden sollten: nach der Laser-Haarentfernung',
+    'posttreatment.frequency.title': 'Wie oft sollte die Behandlung durchgeführt werden?',
+    'posttreatment.frequency.desc': 'In der Regel sind mehrere Sitzungen im Abstand von ca. 4-8 Wochen notwendig, um ein optimales Ergebnis zu erzielen',
+    'posttreatment.rule1': 'Keine heiße Dusche oder Sauna für 24-48 Stunden',
+    'posttreatment.rule2': 'Kein Solarium oder Sonnenbaden für mindestens 2 Wochen',
+    'posttreatment.rule3': 'Kein Peeling oder aggressive Hautpflege für mindestens 7 Tage',
+    'posttreatment.rule4': 'Kein Make-up auf behandelten Gesichtsbereichen für 24 Stunden',
+    'posttreatment.rule5': 'Nicht kratzen oder reiben, auch wenn ein leichter Juckreiz auftreten sollte',
     
     // Benefits
     'benefits.title': 'Ihre Vorteile',
@@ -330,6 +349,15 @@ const translations = {
     'women.services.full-body': 'Повне тіло',
     'women.services.full-body.complete': 'Повний курс епіляції',
     
+    // Pre-treatment rules
+    'pretreatment.title': 'Важливі поради перед лазерною епіляцією',
+    'pretreatment.rule1': '14 днів до процедури: без засмаги, солярію або автозасмаги.',
+    'pretreatment.rule2': '24 години до: ретельно поголити шкіру (не воском чи виривати).',
+    'pretreatment.rule3': 'Не використовувати креми, масла або дезодоранти в день процедури.',
+    'pretreatment.rule4': 'Без пілінгу або агресивних засобів догляду на оброблювану ділянку протягом останніх 3 днів.',
+    'pretreatment.rule5': 'Повідомте нас, якщо ви приймаєте ліки або маєте проблеми зі шкірою.',
+    'pretreatment.rule6': 'Носіть зручний одяг, який не буде дратувати оброблювану зону.',
+    
     // Procedure
     'procedure.title': 'Процес процедури',
     'procedure.description': 'У чотири простих кроки до назавжди гладенької шкіри',
@@ -343,6 +371,16 @@ const translations = {
     'procedure.aftercare.desc': 'Рекомендації з догляду та планування візитів для оптимальних результатів',
     'procedure.duration.title': 'Тривалість та результати',
     'procedure.duration.desc': 'Одна сесія триває від 15 до 90 хвилин залежно від зони обробки. Для оптимальних результатів рекомендується 6-8 процедур з інтервалом 4-6 тижнів. Перші результати помітні вже після 2-ї процедури.',
+    
+    // Post-treatment rules
+    'posttreatment.title': 'Що слід уникати: після лазерної епіляції',
+    'posttreatment.frequency.title': 'Як часто слід проводити процедуру?',
+    'posttreatment.frequency.desc': 'Зазвичай потрібно декілька сесій з інтервалом приблизно 4-8 тижнів для досягнення оптимального результату',
+    'posttreatment.rule1': 'Без гарячого душу або сауни протягом 24-48 годин',
+    'posttreatment.rule2': 'Без солярію або засмаги протягом мінімум 2 тижнів',
+    'posttreatment.rule3': 'Без пілінгу або агресивних засобів догляду протягом мінімум 7 днів',
+    'posttreatment.rule4': 'Без макіяжу на оброблених ділянках обличчя протягом 24 годин',
+    'posttreatment.rule5': 'Не чесати і не тертя, навіть якщо виникне легкий свербіж',
     
     // Benefits
     'benefits.title': 'Ваші переваги',
