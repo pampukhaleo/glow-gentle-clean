@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'de' | 'uk';
@@ -306,7 +305,7 @@ const translations = {
     'women.services.face.neck': 'Шия',
     'women.services.face.complete': 'Обличчя повністю',
     
-    'women.services.upper-body': 'Верхня частина тіла',
+    'women.services.upper-body': 'Тулуб',
     'women.services.upper-body.armpits': 'Пахви',
     'women.services.upper-body.nipples': 'Соски',
     'women.services.upper-body.belly-stripe': 'Смужка на животі',
@@ -315,12 +314,12 @@ const translations = {
     'women.services.upper-body.nape': 'Потилиця',
     
     'women.services.arms': 'Руки',
-    'women.services.arms.forearms': 'Передпліччя',
+    'women.services.arms.forearms': 'Підпліччя',
     'women.services.arms.upper-arms': 'Плечі',
     'women.services.arms.complete': 'Руки повністю',
     
     'women.services.intimate': 'Інтимна зона',
-    'women.services.intimate.complete': 'Інтимна зона повністю',
+    'women.services.intimate.complete': 'Інтим повністю',
     'women.services.intimate.buttocks': 'Зона сідниць',
     
     'women.services.legs': 'Ноги',
@@ -328,8 +327,8 @@ const translations = {
     'women.services.legs.shins': 'Гомілки',
     'women.services.legs.complete': 'Ноги повністю',
     
-    'women.services.full-body': 'Все тіло',
-    'women.services.full-body.complete': 'Повна епіляція тіла',
+    'women.services.full-body': 'Повне тіло',
+    'women.services.full-body.complete': 'Повний курс епіляції',
     
     // Procedure
     'procedure.title': 'Процес процедури',

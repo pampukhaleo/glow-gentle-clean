@@ -1,4 +1,3 @@
-
 import { Zap, Heart, Star, Shield, Users, Sparkles, User, Shirt, Target, Footprints, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -363,7 +362,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 <p>
                   {language === 'de' 
                     ? '* Bei starkem Haarwuchs oder größeren Flächen kann ein Aufpreis entstehen.' 
-                    : '* При сильному рості волосся або більших площах може виникнути доплата.'
+                    : '* При сильному рості волосся або обробці великих ділянок можливе додаткове націнення.'
                   }
                 </p>
               </div>
