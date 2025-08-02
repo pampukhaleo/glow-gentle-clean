@@ -7,7 +7,7 @@ interface ServicesProps {
 }
 
 export const Services = ({ isVisible }: ServicesProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -16,46 +16,46 @@ export const Services = ({ isVisible }: ServicesProps) => {
     }
   };
 
-  // Мужские пакеты
+  // Мужские пакеты с переводами
   const menPackages = [
     {
       title: 'Face & Style',
-      description: 'Обличчя повністю + шия',
+      description: language === 'de' ? 'Gesicht komplett + Hals' : 'Обличчя повністю + шия',
       price: '95€',
       originalPrice: '125€',
       popular: false
     },
     {
       title: 'Fresh Start',
-      description: 'Пахви + контур бороди + шия',
+      description: language === 'de' ? 'Achseln + Bartkontur + Hals' : 'Пахви + контур бороди + шия',
       price: '90€',
       originalPrice: '140€',
       popular: true
     },
     {
       title: 'Business Rücken',
-      description: 'Спина повністю + потилиця + пахви',
+      description: language === 'de' ? 'Rücken komplett + Nacken + Achseln' : 'Спина повністю + потилиця + пахви',
       price: '140€',
       originalPrice: '190€',
       popular: false
     },
     {
       title: 'Oberkörper Stark',
-      description: 'Груди + живіт + пахви + потилиця',
+      description: language === 'de' ? 'Brust + Bauch + Achseln + Nacken' : 'Груди + живіт + пахви + потилиця',
       price: '170€',
       originalPrice: '240€',
       popular: true
     },
     {
       title: 'Intim Deluxe',
-      description: 'Інтим повністю + зона сідниць + пахви',
+      description: language === 'de' ? 'Intim komplett + Gesäßbereich + Achseln' : 'Інтим повністю + зона сідниць + пахви',
       price: '130€',
       originalPrice: '170€',
       popular: false
     },
     {
       title: 'All Inclusive Man',
-      description: 'Обличчя повністю + шия + спина повністю + груди + живіт + пахви + інтим повністю + зона сідниць',
+      description: language === 'de' ? 'Gesicht komplett + Hals + Rücken komplett + Brust + Bauch + Achseln + Intim komplett + Gesäßbereich' : 'Обличчя повністю + шия + спина повністю + груди + живіт + пахви + інтим повністю + зона сідниць',
       price: '320€',
       originalPrice: '450€',
       popular: true
@@ -179,7 +179,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
       </div>
 
       <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium inline-block">
-        Економія {parseInt(pkg.originalPrice) - parseInt(pkg.price)}€
+        {language === 'de' ? 'Ersparnis' : 'Економія'} {parseInt(pkg.originalPrice) - parseInt(pkg.price)}€
       </div>
     </div>
   );
@@ -258,14 +258,14 @@ export const Services = ({ isVisible }: ServicesProps) => {
               className="flex items-center gap-2 font-montserrat font-medium text-base data-[state=active]:bg-salon-teal data-[state=active]:text-white rounded-lg"
             >
               <Users className="w-4 h-4" />
-              Для жінок
+              {language === 'de' ? 'Für Frauen' : 'Для жінок'}
             </TabsTrigger>
             <TabsTrigger 
               value="men"
               className="flex items-center gap-2 font-montserrat font-medium text-base data-[state=active]:bg-salon-teal data-[state=active]:text-white rounded-lg"
             >
               <Users className="w-4 h-4" />
-              Для чоловіків
+              {language === 'de' ? 'Für Männer' : 'Для чоловіків'}
             </TabsTrigger>
           </TabsList>
 
@@ -276,9 +276,11 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 <div>
                   <div className="text-center mb-8">
                     <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
-                      Популярні жіночі пакети
+                      {language === 'de' ? 'Beliebte Frauen-Pakete' : 'Популярні жіночі пакети'}
                     </h3>
-                    <p className="text-gray-600 font-lora">Економте до 40% з нашими спеціальними пропозиціями</p>
+                    <p className="text-gray-600 font-lora">
+                      {language === 'de' ? 'Sparen Sie bis zu 40% mit unseren speziellen Angeboten' : 'Економте до 40% з нашими спеціальними пропозиціями'}
+                    </p>
                   </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     {womenPackages.map((pkg, index) => (
@@ -292,7 +294,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-semibold text-xl text-gray-700 mb-2">
-                    Окремі послуги
+                    {language === 'de' ? 'Einzelleistungen' : 'Окремі послуги'}
                   </h3>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -310,9 +312,11 @@ export const Services = ({ isVisible }: ServicesProps) => {
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
-                    Популярні чоловічі пакети
+                    {language === 'de' ? 'Beliebte Männer-Pakete' : 'Популярні чоловічі пакети'}
                   </h3>
-                  <p className="text-gray-600 font-lora">Економте до 40% з нашими спеціальними пропозиціями</p>
+                  <p className="text-gray-600 font-lora">
+                    {language === 'de' ? 'Sparen Sie bis zu 40% mit unseren speziellen Angeboten' : 'Економте до 40% з нашими спеціальними пропозиціями'}
+                  </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {menPackages.map((pkg, index) => (
@@ -325,7 +329,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-semibold text-xl text-gray-700 mb-2">
-                    Окремі послуги
+                    {language === 'de' ? 'Einzelleistungen' : 'Окремі послуги'}
                   </h3>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -344,7 +348,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
                   {t('men.services.full-body.complete')}
                 </h3>
                 <p className="font-lora mb-4 opacity-90">
-                  Комплексне рішення для всього тіла
+                  {language === 'de' ? 'Komplettlösung für den ganzen Körper' : 'Комплексне рішення для всього тіла'}
                 </p>
                 <div className="text-4xl font-montserrat font-bold">
                   500€
@@ -356,7 +360,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
 
         <div className="text-center mt-12">
           <p className="font-lora text-gray-600 mb-4">
-            * Ціни можуть варіюватися залежно від зони обробки
+            {language === 'de' ? '* Preise können je nach Behandlungsbereich variieren' : '* Ціни можуть варіюватися залежно від зони обробки'}
           </p>
           <button 
             onClick={() => scrollToSection('contact')}
