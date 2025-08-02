@@ -33,7 +33,7 @@ export const Hero = () => {
           <img 
             src="/lovable-uploads/acf6dbb0-10a0-4c86-b2a5-5e3a5ecc43b8.png" 
             alt="LaserBeauty Logo" 
-            className="h-32 w-32 md:h-40 md:w-40 mx-auto object-contain drop-shadow-lg"
+            className="h-48 w-48 md:h-64 md:w-64 mx-auto object-contain drop-shadow-lg"
           />
         </div>
 
