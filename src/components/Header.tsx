@@ -31,7 +31,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/72c56bed-52df-4016-b3d1-753febbcdc13.png" 
+              src="/lovable-uploads/acf6dbb0-10a0-4c86-b2a5-5e3a5ecc43b8.png" 
               alt="LaserBeauty Logo" 
               className="h-12 w-12 object-contain"
             />
