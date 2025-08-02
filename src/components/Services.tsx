@@ -1,4 +1,3 @@
-
 import { Zap, Heart, Star, Shield, Users, Sparkles, User, Shirt, Target, Footprints, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -66,55 +65,55 @@ export const Services = ({ isVisible }: ServicesProps) => {
   // Женские пакеты (временно пустой массив)
   const womenPackages = [];
 
-  // Отдельные услуги для мужчин - сгруппированные
+  // Отдельные услуги для мужчин - сгруппированные с переводами
   const menServiceGroups = [
     {
-      title: 'Обличчя',
+      title: t('men.services.face'),
       icon: User,
       services: [
-        { name: 'Середина брів', price: '30€' },
-        { name: 'Контур бороди', price: '40€' },
-        { name: 'Шия', price: '40€' },
-        { name: 'Борода', price: '45€' },
-        { name: 'Щоки', price: '45€' },
-        { name: 'Потилиця', price: '40€' },
-        { name: 'Обличчя повністю', price: '85€' }
+        { name: t('men.services.face.eyebrow'), price: '30€' },
+        { name: t('men.services.face.beard-contour'), price: '40€' },
+        { name: t('men.services.face.neck'), price: '40€' },
+        { name: t('men.services.face.beard'), price: '45€' },
+        { name: t('men.services.face.cheeks'), price: '45€' },
+        { name: t('men.services.face.nape'), price: '40€' },
+        { name: t('men.services.face.complete'), price: '85€' }
       ]
     },
     {
-      title: 'Верхня частина тіла',
+      title: t('men.services.upper-body'),
       icon: Shirt,
       services: [
-        { name: 'Пахви', price: '60€' },
-        { name: 'Передпліччя', price: '70€' },
-        { name: 'Плечі', price: '70€' },
-        { name: 'Руки повністю', price: '120€' },
-        { name: 'Груди', price: '80€' },
-        { name: 'Живіт', price: '80€' }
+        { name: t('men.services.upper-body.armpits'), price: '60€' },
+        { name: t('men.services.upper-body.forearms'), price: '70€' },
+        { name: t('men.services.upper-body.shoulders'), price: '70€' },
+        { name: t('men.services.upper-body.arms'), price: '120€' },
+        { name: t('men.services.upper-body.chest'), price: '80€' },
+        { name: t('men.services.upper-body.belly'), price: '80€' }
       ]
     },
     {
-      title: 'Інтимна зона',
+      title: t('men.services.intimate'),
       icon: Target,
       services: [
-        { name: 'Передня інтимна зона', price: '80€' },
-        { name: 'Інтимна зона повністю', price: '100€' }
+        { name: t('men.services.intimate.front'), price: '80€' },
+        { name: t('men.services.intimate.complete'), price: '100€' }
       ]
     },
     {
-      title: 'Ноги',
+      title: t('men.services.legs'),
       icon: Footprints,
       services: [
-        { name: 'Стегна', price: '80€' },
-        { name: 'Гомілки', price: '80€' },
-        { name: 'Ноги повністю', price: '140€' }
+        { name: t('men.services.legs.thighs'), price: '80€' },
+        { name: t('men.services.legs.shins'), price: '80€' },
+        { name: t('men.services.legs.complete'), price: '140€' }
       ]
     },
     {
-      title: 'Спина',
+      title: t('men.services.back'),
       icon: ArrowUp,
       services: [
-        { name: 'Спина повністю', price: '110€' }
+        { name: t('men.services.back.complete'), price: '110€' }
       ]
     }
   ];
@@ -342,7 +341,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
                   <Sparkles className="w-8 h-8" />
                 </div>
                 <h3 className="font-montserrat font-bold text-2xl mb-2">
-                  Повна епіляція тіла
+                  {t('men.services.full-body.complete')}
                 </h3>
                 <p className="font-lora mb-4 opacity-90">
                   Комплексне рішення для всього тіла

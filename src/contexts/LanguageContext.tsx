@@ -52,6 +52,39 @@ const translations = {
     'services.from': 'Ab',
     'services.consultation.btn': 'Termin buchen →',
     
+    // Men's services
+    'men.services.face': 'Gesicht',
+    'men.services.face.eyebrow': 'Augenbrauenmitte',
+    'men.services.face.beard-contour': 'Bartkontur',
+    'men.services.face.neck': 'Hals',
+    'men.services.face.beard': 'Bart',
+    'men.services.face.cheeks': 'Wangen',
+    'men.services.face.nape': 'Nacken',
+    'men.services.face.complete': 'Gesicht komplett',
+    
+    'men.services.upper-body': 'Oberkörper',
+    'men.services.upper-body.armpits': 'Achseln',
+    'men.services.upper-body.forearms': 'Unterarme',
+    'men.services.upper-body.shoulders': 'Oberarme',
+    'men.services.upper-body.arms': 'Arme komplett',
+    'men.services.upper-body.chest': 'Brust',
+    'men.services.upper-body.belly': 'Bauch',
+    
+    'men.services.intimate': 'Intimzone',
+    'men.services.intimate.front': 'Intimzone vorne',
+    'men.services.intimate.complete': 'Intim komplett',
+    
+    'men.services.legs': 'Beine',
+    'men.services.legs.thighs': 'Oberschenkel',
+    'men.services.legs.shins': 'Unterschenkel',
+    'men.services.legs.complete': 'Beine komplett',
+    
+    'men.services.back': 'Rücken',
+    'men.services.back.complete': 'Rücken komplett',
+    
+    'men.services.full-body': 'Ganzer Körper',
+    'men.services.full-body.complete': 'Ganzkörper',
+    
     // Procedure  
     'procedure.title': 'Behandlungsablauf',
     'procedure.description': 'In vier einfachen Schritten zu dauerhaft glatter Haut',
@@ -195,6 +228,39 @@ const translations = {
     'services.popular': 'Популярно',
     'services.from': 'Від',
     'services.consultation.btn': 'Записатися →',
+    
+    // Men's services
+    'men.services.face': 'Обличчя',
+    'men.services.face.eyebrow': 'Середина брів',
+    'men.services.face.beard-contour': 'Контур бороди',
+    'men.services.face.neck': 'Шия',
+    'men.services.face.beard': 'Борода',
+    'men.services.face.cheeks': 'Щоки',
+    'men.services.face.nape': 'Потилиця',
+    'men.services.face.complete': 'Обличчя повністю',
+    
+    'men.services.upper-body': 'Верхня частина тіла',
+    'men.services.upper-body.armpits': 'Пахви',
+    'men.services.upper-body.forearms': 'Передпліччя',
+    'men.services.upper-body.shoulders': 'Плечі',
+    'men.services.upper-body.arms': 'Руки повністю',
+    'men.services.upper-body.chest': 'Груди',
+    'men.services.upper-body.belly': 'Живіт',
+    
+    'men.services.intimate': 'Інтимна зона',
+    'men.services.intimate.front': 'Передня інтимна зона',
+    'men.services.intimate.complete': 'Інтимна зона повністю',
+    
+    'men.services.legs': 'Ноги',
+    'men.services.legs.thighs': 'Стегна',
+    'men.services.legs.shins': 'Гомілки',
+    'men.services.legs.complete': 'Ноги повністю',
+    
+    'men.services.back': 'Спина',
+    'men.services.back.complete': 'Спина повністю',
+    
+    'men.services.full-body': 'Все тіло',
+    'men.services.full-body.complete': 'Повна епіляція тіла',
     
     // Procedure
     'procedure.title': 'Процес процедури',
