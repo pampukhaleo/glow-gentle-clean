@@ -1,3 +1,4 @@
+
 import { Zap, Heart, Star, Shield, Users, Sparkles, User, Shirt, Target, Footprints, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -154,31 +155,57 @@ export const Services = ({ isVisible }: ServicesProps) => {
     }
   ];
 
-  // Отдельные услуги для женщин (существующие)
-  const womenServices = [
+  // Отдельные услуги для женщин - сгруппированные с переводами
+  const womenServiceGroups = [
     {
-      icon: Zap,
-      title: t('services.face'),
-      description: t('services.face.desc'),
-      price: `${t('services.from')} 89€`
+      title: t('women.services.face'),
+      icon: User,
+      services: [
+        { name: t('women.services.face.eyebrow'), price: '20€' },
+        { name: t('women.services.face.upper-lip'), price: '20€' },
+        { name: t('women.services.face.chin'), price: '25€' },
+        { name: t('women.services.face.cheeks'), price: '30€' },
+        { name: t('women.services.face.neck'), price: '30€' },
+        { name: t('women.services.face.complete'), price: '60€' }
+      ]
     },
     {
-      icon: Heart,
-      title: t('services.armpits'),
-      description: t('services.armpits.desc'),
-      price: `${t('services.from')} 59€`
+      title: t('women.services.upper-body'),
+      icon: Shirt,
+      services: [
+        { name: t('women.services.upper-body.armpits'), price: '40€' },
+        { name: t('women.services.upper-body.nipples'), price: '20€' },
+        { name: t('women.services.upper-body.belly-stripe'), price: '20€' },
+        { name: t('women.services.upper-body.belly'), price: '40€' },
+        { name: t('women.services.upper-body.back'), price: '90€' },
+        { name: t('women.services.upper-body.nape'), price: '30€' }
+      ]
     },
     {
-      icon: Star,
-      title: t('services.legs'),
-      description: t('services.legs.desc'),
-      price: `${t('services.from')} 199€`
+      title: t('women.services.arms'),
+      icon: Shirt,
+      services: [
+        { name: t('women.services.arms.forearms'), price: '50€' },
+        { name: t('women.services.arms.upper-arms'), price: '50€' },
+        { name: t('women.services.arms.complete'), price: '90€' }
+      ]
     },
     {
-      icon: Shield,
-      title: t('services.bikini'),
-      description: t('services.bikini.desc'),
-      price: `${t('services.from')} 79€`
+      title: t('women.services.intimate'),
+      icon: Target,
+      services: [
+        { name: t('women.services.intimate.complete'), price: '70€' },
+        { name: t('women.services.intimate.buttocks'), price: '40€' }
+      ]
+    },
+    {
+      title: t('women.services.legs'),
+      icon: Footprints,
+      services: [
+        { name: t('women.services.legs.thighs'), price: '60€' },
+        { name: t('women.services.legs.shins'), price: '60€' },
+        { name: t('women.services.legs.complete'), price: '100€' }
+      ]
     }
   ];
 
@@ -216,29 +243,6 @@ export const Services = ({ isVisible }: ServicesProps) => {
 
       <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium inline-block">
         {language === 'de' ? 'Ersparnis' : 'Економія'} {parseInt(pkg.originalPrice) - parseInt(pkg.price)}€
-      </div>
-    </div>
-  );
-
-  const ServiceCard = ({ service, index }) => (
-    <div
-      key={index}
-      className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 opacity-80 hover:opacity-100"
-    >
-      <div className="w-10 h-10 bg-salon-teal/10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-salon-teal transition-colors duration-300">
-        <service.icon className="w-5 h-5 text-salon-teal" />
-      </div>
-      
-      <h4 className="font-montserrat font-semibold text-lg text-gray-900 mb-2">
-        {service.title}
-      </h4>
-      
-      <p className="font-lora text-gray-600 mb-3 text-sm">
-        {service.description}
-      </p>
-      
-      <div className="text-salon-teal font-montserrat font-bold">
-        {service.price}
       </div>
     </div>
   );
@@ -324,18 +328,44 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 </div>
               </div>
 
-              {/* Отдельные женские услуги */}
+              {/* Отдельные женские услуги - сгруппированные */}
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-semibold text-xl text-gray-700 mb-2">
                     {language === 'de' ? 'Einzelleistungen' : 'Окремі послуги'}
                   </h3>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {womenServices.map((service, index) => (
-                    <ServiceCard key={index} service={service} index={index} />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {womenServiceGroups.map((group, index) => (
+                    <ServiceGroupCard key={index} group={group} index={index} />
                   ))}
                 </div>
+              </div>
+
+              {/* Полная эпиляция тела - отдельный блок для женщин */}
+              <div className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8" />
+                </div>
+                <h3 className="font-montserrat font-bold text-2xl mb-2">
+                  {t('women.services.full-body.complete')}
+                </h3>
+                <p className="font-lora mb-4 opacity-90">
+                  {language === 'de' ? 'Komplettlösung für den ganzen Körper' : 'Комплексне рішення для всього тіла'}
+                </p>
+                <div className="text-4xl font-montserrat font-bold">
+                  350€
+                </div>
+              </div>
+
+              {/* Hinweis */}
+              <div className="text-center text-gray-600 font-lora text-sm">
+                <p>
+                  {language === 'de' 
+                    ? '* Bei starkem Haarwuchs oder größeren Flächen kann ein Aufpreis entstehen.' 
+                    : '* При сильному рості волосся або більших площах може виникнути доплата.'
+                  }
+                </p>
               </div>
             </div>
           </TabsContent>

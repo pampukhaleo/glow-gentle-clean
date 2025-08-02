@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'de' | 'uk';
@@ -84,6 +85,40 @@ const translations = {
     
     'men.services.full-body': 'Ganzer Körper',
     'men.services.full-body.complete': 'Ganzkörper',
+    
+    // Women's services
+    'women.services.face': 'Gesicht',
+    'women.services.face.eyebrow': 'Augenbrauenmitte',
+    'women.services.face.upper-lip': 'Oberlippe',
+    'women.services.face.chin': 'Kinn',
+    'women.services.face.cheeks': 'Wangen',
+    'women.services.face.neck': 'Hals',
+    'women.services.face.complete': 'Gesicht komplett',
+    
+    'women.services.upper-body': 'Oberkörper',
+    'women.services.upper-body.armpits': 'Achseln',
+    'women.services.upper-body.nipples': 'Brustwarzen',
+    'women.services.upper-body.belly-stripe': 'Bauchstreifen',
+    'women.services.upper-body.belly': 'Bauch komplett',
+    'women.services.upper-body.back': 'Rücken komplett',
+    'women.services.upper-body.nape': 'Nacken',
+    
+    'women.services.arms': 'Arme',
+    'women.services.arms.forearms': 'Unterarme',
+    'women.services.arms.upper-arms': 'Oberarme',
+    'women.services.arms.complete': 'Arme komplett',
+    
+    'women.services.intimate': 'Intimzone',
+    'women.services.intimate.complete': 'Intim komplett',
+    'women.services.intimate.buttocks': 'Gesäßbereich',
+    
+    'women.services.legs': 'Beine',
+    'women.services.legs.thighs': 'Oberschenkel',
+    'women.services.legs.shins': 'Unterschenkel',
+    'women.services.legs.complete': 'Beine komplett',
+    
+    'women.services.full-body': 'Ganzer Körper',
+    'women.services.full-body.complete': 'Ganzkörper',
     
     // Procedure  
     'procedure.title': 'Behandlungsablauf',
@@ -261,6 +296,40 @@ const translations = {
     
     'men.services.full-body': 'Все тіло',
     'men.services.full-body.complete': 'Повна епіляція тіла',
+    
+    // Women's services
+    'women.services.face': 'Обличчя',
+    'women.services.face.eyebrow': 'Середина брів',
+    'women.services.face.upper-lip': 'Верхня губа',
+    'women.services.face.chin': 'Підборіддя',
+    'women.services.face.cheeks': 'Щоки',
+    'women.services.face.neck': 'Шия',
+    'women.services.face.complete': 'Обличчя повністю',
+    
+    'women.services.upper-body': 'Верхня частина тіла',
+    'women.services.upper-body.armpits': 'Пахви',
+    'women.services.upper-body.nipples': 'Соски',
+    'women.services.upper-body.belly-stripe': 'Смужка на животі',
+    'women.services.upper-body.belly': 'Живіт повністю',
+    'women.services.upper-body.back': 'Спина повністю',
+    'women.services.upper-body.nape': 'Потилиця',
+    
+    'women.services.arms': 'Руки',
+    'women.services.arms.forearms': 'Передпліччя',
+    'women.services.arms.upper-arms': 'Плечі',
+    'women.services.arms.complete': 'Руки повністю',
+    
+    'women.services.intimate': 'Інтимна зона',
+    'women.services.intimate.complete': 'Інтимна зона повністю',
+    'women.services.intimate.buttocks': 'Зона сідниць',
+    
+    'women.services.legs': 'Ноги',
+    'women.services.legs.thighs': 'Стегна',
+    'women.services.legs.shins': 'Гомілки',
+    'women.services.legs.complete': 'Ноги повністю',
+    
+    'women.services.full-body': 'Все тіло',
+    'women.services.full-body.complete': 'Повна епіляція тіла',
     
     // Procedure
     'procedure.title': 'Процес процедури',
