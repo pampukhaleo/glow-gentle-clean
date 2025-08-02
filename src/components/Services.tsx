@@ -1,5 +1,5 @@
 
-import { Zap, Heart, Star, Shield, Users, Sparkles } from "lucide-react";
+import { Zap, Heart, Star, Shield, Users, Sparkles, User, Shirt, Target, Footprints, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -66,25 +66,56 @@ export const Services = ({ isVisible }: ServicesProps) => {
   // Женские пакеты (временно пустой массив)
   const womenPackages = [];
 
-  // Отдельные услуги для мужчин
-  const menServices = [
+  // Отдельные услуги для мужчин - сгруппированные
+  const menServiceGroups = [
     {
-      icon: Zap,
-      title: 'Лицо',
-      description: 'Борода, усы, щеки',
-      price: 'От 60€'
+      title: 'Обличчя',
+      icon: User,
+      services: [
+        { name: 'Середина брів', price: '30€' },
+        { name: 'Контур бороди', price: '40€' },
+        { name: 'Шия', price: '40€' },
+        { name: 'Борода', price: '45€' },
+        { name: 'Щоки', price: '45€' },
+        { name: 'Потилиця', price: '40€' },
+        { name: 'Обличчя повністю', price: '85€' }
+      ]
     },
     {
-      icon: Heart,
-      title: 'Тело',
-      description: 'Спина, грудь, живот',
-      price: 'От 80€'
+      title: 'Верхня частина тіла',
+      icon: Shirt,
+      services: [
+        { name: 'Пахви', price: '60€' },
+        { name: 'Передпліччя', price: '70€' },
+        { name: 'Плечі', price: '70€' },
+        { name: 'Руки повністю', price: '120€' },
+        { name: 'Груди', price: '80€' },
+        { name: 'Живіт', price: '80€' }
+      ]
     },
     {
-      icon: Star,
-      title: 'Интим',
-      description: 'Деликатные зоны',
-      price: 'От 70€'
+      title: 'Інтимна зона',
+      icon: Target,
+      services: [
+        { name: 'Передня інтимна зона', price: '80€' },
+        { name: 'Інтимна зона повністю', price: '100€' }
+      ]
+    },
+    {
+      title: 'Ноги',
+      icon: Footprints,
+      services: [
+        { name: 'Стегна', price: '80€' },
+        { name: 'Гомілки', price: '80€' },
+        { name: 'Ноги повністю', price: '140€' }
+      ]
+    },
+    {
+      title: 'Спина',
+      icon: ArrowUp,
+      services: [
+        { name: 'Спина повністю', price: '110€' }
+      ]
     }
   ];
 
@@ -177,6 +208,32 @@ export const Services = ({ isVisible }: ServicesProps) => {
     </div>
   );
 
+  const ServiceGroupCard = ({ group, index }) => (
+    <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 opacity-80">
+      <div className="flex items-center mb-4">
+        <div className="w-8 h-8 bg-salon-teal/10 rounded-lg flex items-center justify-center mr-3">
+          <group.icon className="w-5 h-5 text-salon-teal" />
+        </div>
+        <h4 className="font-montserrat font-semibold text-lg text-gray-900">
+          {group.title}
+        </h4>
+      </div>
+      
+      <div className="space-y-2">
+        {group.services.map((service, serviceIndex) => (
+          <div key={serviceIndex} className="flex justify-between items-center py-1">
+            <span className="font-lora text-gray-700 text-sm">
+              {service.name}
+            </span>
+            <span className="font-montserrat font-semibold text-salon-teal">
+              {service.price}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <section 
       id="services" 
@@ -265,17 +322,33 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 </div>
               </div>
 
-              {/* Отдельные мужские услуги */}
+              {/* Отдельные мужские услуги - сгруппированные */}
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-semibold text-xl text-gray-700 mb-2">
                     Окремі послуги
                   </h3>
                 </div>
-                <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4">
-                  {menServices.map((service, index) => (
-                    <ServiceCard key={index} service={service} index={index} />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {menServiceGroups.map((group, index) => (
+                    <ServiceGroupCard key={index} group={group} index={index} />
                   ))}
+                </div>
+              </div>
+
+              {/* Полная эпиляция тела - отдельный блок */}
+              <div className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white">
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8" />
+                </div>
+                <h3 className="font-montserrat font-bold text-2xl mb-2">
+                  Повна епіляція тіла
+                </h3>
+                <p className="font-lora mb-4 opacity-90">
+                  Комплексне рішення для всього тіла
+                </p>
+                <div className="text-4xl font-montserrat font-bold">
+                  500€
                 </div>
               </div>
             </div>
