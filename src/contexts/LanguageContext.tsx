@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'de' | 'uk';
@@ -30,13 +29,13 @@ const translations = {
     
     // About
     'about.title': 'Über uns',
-    'about.description': 'Seit über 10 Jahren sind wir Ihr vertrauensvoller Partner für professionelle Laser-Haarentfernung. Unser Team aus zertifizierten Kosmetikerinnen und Dermatologinnen verwendet ausschließlich modernste Laser-Technologie für optimale Ergebnisse bei maximaler Sicherheit.',
-    'about.certified': 'Zertifiziert',
-    'about.certified.desc': 'Alle Behandlungen werden von zertifizierten Fachkräften durchgeführt',
-    'about.clients': '5000+ Kunden',
-    'about.clients.desc': 'Zufriedene Kunden vertrauen auf unsere Expertise',
-    'about.experience': '10+ Jahre',
-    'about.experience.desc': 'Langjährige Erfahrung in der Laser-Haarentfernung',
+    'about.description': 'Wir sind Ihr vertrauensvoller Partner für professionelle Laser-Haarentfernung. Unser Team aus qualifizierten Kosmetikerinnen verwendet ausschließlich modernste Laser-Technologie für optimale Ergebnisse bei maximaler Sicherheit. Qualität und Kundenzufriedenheit stehen bei uns an erster Stelle.',
+    'about.certified': 'Qualifiziert',
+    'about.certified.desc': 'Alle Behandlungen werden von qualifizierten Fachkräften durchgeführt',
+    'about.clients': 'Zuverlässig',
+    'about.clients.desc': 'Verlassen Sie sich auf unsere Professionalität und Expertise',
+    'about.experience': 'Modern',
+    'about.experience.desc': 'Neueste Technologien für beste Behandlungsresultate',
     
     // Services
     'services.title': 'Unsere Leistungen',
@@ -174,13 +173,13 @@ const translations = {
     
     // About
     'about.title': 'Про нас',
-    'about.description': 'Вже понад 10 років ми є вашим надійним партнером у сфері професійної лазерної епіляції. Наша команда сертифікованих косметологинь та дерматологинь використовує виключно найсучасніші лазерні технології для оптимальних результатів з максимальною безпекою.',
-    'about.certified': 'Сертифіковано',
-    'about.certified.desc': 'Всі процедури виконуються сертифікованими фахівцями',
-    'about.clients': '5000+ клієнтів',
-    'about.clients.desc': 'Задоволені клієнти довіряють нашому досвіду',
-    'about.experience': '10+ років',
-    'about.experience.desc': 'Багаторічний досвід у лазерній епіляції',
+    'about.description': 'Ми є вашим надійним партнером у сфері професійної лазерної епіляції. Наша команда кваліфікованих косметологинь використовує виключно найсучасніші лазерні технології для оптимальних результатів з максимальною безпекою. Якість та задоволеність клієнтів є нашим пріоритетом.',
+    'about.certified': 'Кваліфіковано',
+    'about.certified.desc': 'Всі процедури виконуються кваліфікованими фахівцями',
+    'about.clients': 'Надійно',
+    'about.clients.desc': 'Покладайтеся на нашу професійність та експертизу',
+    'about.experience': 'Сучасно',
+    'about.experience.desc': 'Найновіші технології для найкращих результатів',
     
     // Services
     'services.title': 'Наші послуги',
@@ -270,7 +269,7 @@ const translations = {
     'faq.q6': 'Які побічні ефекти можуть виникнути?',
     'faq.a6': 'Легкі почервоніння та набряки є нормальними і зникають протягом кількох годин. При правильному застосуванні серйозні побічні ефекти дуже рідкісні.',
     'faq.more.title': 'Ще питання?',
-    'faq.more.desc': 'Наша досвідчена команда з радістю відповість на всі ваші питання під час персональної консультації.',
+    'faq.more.desc': 'Наша команда професіоналів з радістю відповість на всі ваші питання під час персональної консультації.',
     'faq.more.btn': 'Записатися',
     
     // Contact
