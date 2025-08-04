@@ -23,7 +23,7 @@ export const Hero = () => {
         {/* Logo */}
         <div className="mb-6 md:mb-8 animate-fade-in">
           <img 
-            src="/lovable-uploads/acf6dbb0-10a0-4c86-b2a5-5e3a5ecc43b8.png" 
+            src="lovable-uploads/acf6dbb0-10a0-4c86-b2a5-5e3a5ecc43b8.png"
             alt="LaserBeauty Logo" 
             className="h-32 w-32 md:h-48 md:w-48 lg:h-64 lg:w-64 mx-auto object-contain drop-shadow-lg"
           />

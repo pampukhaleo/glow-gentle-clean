@@ -20,7 +20,6 @@ export const Header = () => {
   const menuItems = [
     { label: t('nav.about'), id: "about" },
     { label: t('nav.services'), id: "services" },
-    { label: t('nav.gallery'), id: "gallery" },
     { label: t('nav.reviews'), id: "reviews" },
     { label: t('nav.contact'), id: "contact" }
   ];
@@ -29,9 +28,9 @@ export const Header = () => {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between min-h-[60px]">
-          <div className="flex items-center space-x-2 flex-shrink-0">
+          <div className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/acf6dbb0-10a0-4c86-b2a5-5e3a5ecc43b8.png" 
+              src="lovable-uploads/acf6dbb0-10a0-4c86-b2a5-5e3a5ecc43b8.png"
               alt="LaserBeauty Logo" 
               className="h-10 w-10 object-contain"
             />
@@ -41,7 +40,7 @@ export const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {menuItems.map((item) => (
               <button
                 key={item.id}
@@ -63,7 +62,7 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden z-50 p-2"
+            className="lg:hidden z-50 p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} className="text-salon-teal" /> : <Menu size={24} className="text-salon-teal" />}
@@ -72,7 +71,7 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden absolute left-0 right-0 top-full bg-white/98 backdrop-blur-md shadow-lg border-t border-gray-100">
+          <nav className="md:hidden absolute left-0 right-0 top-full bg-white backdrop-blur-md shadow-lg border-t border-gray-100">
             <div className="flex flex-col px-4 py-6 space-y-4">
               {menuItems.map((item) => (
                 <button
