@@ -248,7 +248,7 @@ export const ServiceSelector = ({ selectedServices, onServicesChange }: ServiceS
       )}
 
       <Tabs defaultValue="women-packages" className="w-full">
-        <TabsList className="grid w-full grid-cols-4 mb-4">
+        <TabsList className="!grid w-full grid-cols-2 sm:grid-cols-4 gap-2 !h-auto p-2 rounded-xl bg-muted/60 mb-4">
           <TabsTrigger value="women-packages" className="text-xs">
             {language === 'de' ? 'Frauen Pakete' : 'Жіночі пакети'}
           </TabsTrigger>

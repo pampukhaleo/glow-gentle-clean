@@ -14,4 +14,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://laserbeauty-salon.lovable.app/sitemap.xml
+Sitemap: https://laserbeauty-studio.de/sitemap.xml
