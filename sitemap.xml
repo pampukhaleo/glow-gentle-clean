@@ -6,12 +6,10 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   
   <url>
-    <loc>https://laserbeauty-salon.lovable.app/</loc>
+    <loc>https://laserbeauty-studio.de/</loc>
     <lastmod>2025-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Add more URLs here as you create additional pages -->
-  
+
 </urlset>
