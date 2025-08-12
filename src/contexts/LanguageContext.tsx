@@ -239,7 +239,7 @@ const translations = {
     'contact.footer.privacy': 'Datenschutz',
     'contact.footer.imprint': 'Impressum',
     'contact.footer.terms': 'AGB',
-    'contact.footer.copyright': '© 2024 LaserBeauty Salon. Alle Rechte vorbehalten.'
+    'contact.footer.copyright': '© 2025 LaserBeauty Salon. Alle Rechte vorbehalten.'
   },
   uk: {
     // Header
@@ -469,7 +469,7 @@ const translations = {
     'contact.footer.privacy': 'Конфіденційність',
     'contact.footer.imprint': 'Імпресум',
     'contact.footer.terms': 'Умови',
-    'contact.footer.copyright': '© 2024 LaserBeauty Salon. Всі права захищені.'
+    'contact.footer.copyright': '© 2025 LaserBeauty Salon. Всі права захищені.'
   }
 };
 

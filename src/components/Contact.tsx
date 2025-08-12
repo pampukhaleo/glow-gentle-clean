@@ -186,20 +186,20 @@ export const Contact = ({ isVisible }: ContactProps) => {
                   <div>
                     <p className="font-lora text-gray-700">
                       {t('contact.address')}:<br />
-                      Musterstraße 123<br />
-                      10115 Berlin, Deutschland
+                      Schwertstrasse 4<br />
+                      47799, Krefeld
                     </p>
                   </div>
                 </div>
                 
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-salon-teal" />
-                  <p className="font-lora text-gray-700">+49 30 12345678</p>
+                  <p className="font-lora text-gray-700">+4917632156647</p>
                 </div>
                 
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-salon-teal" />
-                  <p className="font-lora text-gray-700">info@laserbeauty-salon.de</p>
+                  <p className="font-lora text-gray-700">Laser.beauty.studio@icloud.com</p>
                 </div>
                 
                 <div className="flex items-start space-x-3">
@@ -214,14 +214,14 @@ export const Contact = ({ isVisible }: ContactProps) => {
 
             <div className="bg-white rounded-2xl shadow-lg p-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.0965932049154!2d13.376993516236815!3d52.52000097981317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851c655f20989%3A0x26bbfb4e84674c63!2sBrandenburg%20Gate!5e0!3m2!1sen!2sde!4v1629794729405!5m2!1sen!2sde"
+                src="https://www.google.com/maps?q=Schwertstrasse%204,%2047799,%20Krefeld,%20Germany&hl=de&output=embed"
                 width="100%"
                 height="300"
                 className="rounded-lg border-0"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="LaserBeauty Salon Standort"
+                title="LaserBeauty – Schwertstrasse 4, 47799 Krefeld"
               />
             </div>
           </div>
@@ -232,16 +232,11 @@ export const Contact = ({ isVisible }: ContactProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="font-montserrat font-bold text-2xl text-salon-teal mb-4">
-              LaserBeauty
+              <span className="text-[#F772C1]">Laser</span>Beauty
             </div>
             <p className="font-lora text-gray-600 mb-6">
-              {t('contact.footer.tagline')}
+            {t('contact.footer.tagline')}
             </p>
-            <div className="flex justify-center space-x-6 text-sm font-lora text-gray-500">
-              <a href="#" className="hover:text-salon-teal transition-colors">{t('contact.footer.privacy')}</a>
-              <a href="#" className="hover:text-salon-teal transition-colors">{t('contact.footer.imprint')}</a>
-              <a href="#" className="hover:text-salon-teal transition-colors">{t('contact.footer.terms')}</a>
-            </div>
             <p className="font-lora text-gray-500 text-sm mt-4">
               {t('contact.footer.copyright')}
             </p>

@@ -41,16 +41,16 @@ const IndexContent = () => {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <Hero />
-        <About isVisible={isVisible} />
-        <Services isVisible={isVisible} />
-        <PreTreatment isVisible={isVisible} />
-        <Procedure isVisible={isVisible} />
-        <PostTreatment isVisible={isVisible} />
-        <Benefits isVisible={isVisible} />
-        <Reviews isVisible={isVisible} />
-        <FAQ isVisible={isVisible} />
-        <Contact isVisible={isVisible} />
+        <Hero/>
+        <About isVisible={ isVisible }/>
+        <Services isVisible={ isVisible }/>
+        <PreTreatment isVisible={ isVisible }/>
+        <Procedure isVisible={ isVisible }/>
+        <PostTreatment isVisible={ isVisible }/>
+        <Benefits isVisible={ isVisible }/>
+        <Reviews isVisible={ isVisible }/>
+        <FAQ isVisible={ isVisible }/>
+        <Contact isVisible={ isVisible }/>
       </main>
     </div>
   );
