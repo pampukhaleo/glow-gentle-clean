@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ServiceSelector } from "./ServiceSelector";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface ContactProps {
   isVisible: Record<string, boolean>;
@@ -12,6 +15,8 @@ interface ContactProps {
 
 export const Contact = ({ isVisible }: ContactProps) => {
   const { t } = useLanguage();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -37,19 +42,67 @@ export const Contact = ({ isVisible }: ContactProps) => {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would integrate with your email/CRM system
-    alert("Vielen Dank für Ihre Anfrage! Wir melden uns binnen 24 Stunden bei Ihnen.");
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      services: [],
-      date: "",
-      message: ""
-    });
+    
+    if (!formData.name.trim() || !formData.phone.trim() || formData.services.length === 0) {
+      toast({
+        title: "Fehler",
+        description: "Bitte füllen Sie alle Pflichtfelder aus.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-form-telegram', {
+        body: {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          services: formData.services,
+          date: formData.date,
+          message: formData.message
+        }
+      });
+
+      if (error) {
+        console.error('Error sending contact form:', error);
+        toast({
+          title: "Fehler",
+          description: "Es gab einen Fehler beim Senden Ihrer Anfrage. Bitte versuchen Sie es später erneut.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Erfolgreich gesendet!",
+        description: "Vielen Dank für Ihre Anfrage! Wir melden uns binnen 24 Stunden bei Ihnen.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        services: [],
+        date: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Fehler",
+        description: "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -101,6 +154,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting}
                     className="border-gray-300 focus:border-salon-teal"
                     placeholder="Ihr vollständiger Name"
                   />
@@ -113,6 +167,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting}
                     className="border-gray-300 focus:border-salon-teal"
                     placeholder="+49 123 456789"
                   />
@@ -126,6 +181,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  disabled={isSubmitting}
                   className="border-gray-300 focus:border-salon-teal"
                   placeholder="ihre.email@beispiel.de"
                 />
@@ -148,6 +204,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
+                  disabled={isSubmitting}
                   className="border-gray-300 focus:border-salon-teal"
                 />
               </div>
@@ -159,6 +216,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
+                  disabled={isSubmitting}
                   className="border-gray-300 focus:border-salon-teal"
                   placeholder="Weitere Fragen oder Anmerkungen..."
                 />
@@ -166,9 +224,10 @@ export const Contact = ({ isVisible }: ContactProps) => {
 
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat py-3 text-lg transition-colors duration-300"
               >
-                {t('contact.submit')}
+                {isSubmitting ? 'Wird gesendet...' : t('contact.submit')}
               </Button>
             </form>
           </div>

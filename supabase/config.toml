@@ -1,1 +1,5 @@
+
 project_id = "cdqolplrdwwxdbnlgize"
+
+[functions.send-contact-form-telegram]
+verify_jwt = false
