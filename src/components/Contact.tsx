@@ -47,8 +47,8 @@ export const Contact = ({ isVisible }: ContactProps) => {
     
     if (!formData.name.trim() || !formData.phone.trim() || formData.services.length === 0) {
       toast({
-        title: "Fehler",
-        description: "Bitte füllen Sie alle Pflichtfelder aus.",
+        title: t('contact.error.required'),
+        description: t('contact.error.required'),
         variant: "destructive",
       });
       return;
@@ -71,16 +71,16 @@ export const Contact = ({ isVisible }: ContactProps) => {
       if (error) {
         console.error('Error sending contact form:', error);
         toast({
-          title: "Fehler",
-          description: "Es gab einen Fehler beim Senden Ihrer Anfrage. Bitte versuchen Sie es später erneut.",
+          title: t('contact.error.sending'),
+          description: t('contact.error.sending'),
           variant: "destructive",
         });
         return;
       }
 
       toast({
-        title: "Erfolgreich gesendet!",
-        description: "Vielen Dank für Ihre Anfrage! Wir melden uns binnen 24 Stunden bei Ihnen.",
+        title: t('contact.success.title'),
+        description: t('contact.success.message'),
       });
 
       // Reset form
@@ -96,8 +96,8 @@ export const Contact = ({ isVisible }: ContactProps) => {
     } catch (error) {
       console.error('Unexpected error:', error);
       toast({
-        title: "Fehler",
-        description: "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+        title: t('contact.error.unexpected'),
+        description: t('contact.error.unexpected'),
         variant: "destructive",
       });
     } finally {
@@ -227,7 +227,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
                 disabled={isSubmitting}
                 className="w-full bg-salon-teal hover:bg-salon-teal-light text-white font-montserrat py-3 text-lg transition-colors duration-300"
               >
-                {isSubmitting ? 'Wird gesendet...' : t('contact.submit')}
+                {isSubmitting ? t('contact.sending') : t('contact.submit')}
               </Button>
             </form>
           </div>

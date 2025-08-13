@@ -239,7 +239,15 @@ const translations = {
     'contact.footer.privacy': 'Datenschutz',
     'contact.footer.imprint': 'Impressum',
     'contact.footer.terms': 'AGB',
-    'contact.footer.copyright': '© 2025 LaserBeauty Salon. Alle Rechte vorbehalten.'
+    'contact.footer.copyright': '© 2025 LaserBeauty Salon. Alle Rechte vorbehalten.',
+    
+    // Error messages
+    'contact.error.required': 'Bitte füllen Sie alle Pflichtfelder aus.',
+    'contact.error.sending': 'Es gab einen Fehler beim Senden Ihrer Anfrage. Bitte versuchen Sie es später erneut.',
+    'contact.error.unexpected': 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.',
+    'contact.success.title': 'Erfolgreich gesendet!',
+    'contact.success.message': 'Vielen Dank für Ihre Anfrage! Wir melden uns binnen 24 Stunden bei Ihnen.',
+    'contact.sending': 'Wird gesendet...'
   },
   uk: {
     // Header
@@ -469,7 +477,15 @@ const translations = {
     'contact.footer.privacy': 'Конфіденційність',
     'contact.footer.imprint': 'Імпресум',
     'contact.footer.terms': 'Умови',
-    'contact.footer.copyright': '© 2025 LaserBeauty Salon. Всі права захищені.'
+    'contact.footer.copyright': '© 2025 LaserBeauty Salon. Всі права захищені.',
+    
+    // Error messages
+    'contact.error.required': 'Будь ласка, заповніть всі обов\'язкові поля.',
+    'contact.error.sending': 'Виникла помилка при відправці вашого запиту. Будь ласка, спробуйте пізніше.',
+    'contact.error.unexpected': 'Виникла неочікувана помилка. Будь ласка, спробуйте пізніше.',
+    'contact.success.title': 'Успішно відправлено!',
+    'contact.success.message': 'Дякуємо за ваш запит! Ми зв\'яжемося з вами протягом 24 годин.',
+    'contact.sending': 'Відправляється...'
   }
 };
 
