@@ -1,5 +1,5 @@
 
 project_id = "cdqolplrdwwxdbnlgize"
 
-[functions.send-contact-form-telegram]
+[functions.send-contact-form-telegram-laserbeauty]
 verify_jwt = false

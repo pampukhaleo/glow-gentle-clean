@@ -57,7 +57,7 @@ export const Contact = ({ isVisible }: ContactProps) => {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-form-telegram', {
+      const { data, error } = await supabase.functions.invoke('send-contact-form-telegram-laserbeauty', {
         body: {
           name: formData.name,
           phone: formData.phone,
