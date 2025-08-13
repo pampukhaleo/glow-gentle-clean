@@ -83,7 +83,7 @@ ${formattedMessage}
     );
 
   } catch (error) {
-    console.error('Error in send-contact-form-telegram function:', error);
+    console.error('Error in send-contact-form-telegram-laserbeauty function:', error);
     return new Response(
       JSON.stringify({ error: 'Internal server error' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
