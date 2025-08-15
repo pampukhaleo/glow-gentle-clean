@@ -250,19 +250,19 @@ export const Contact = ({ isVisible }: ContactProps) => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-salon-teal" />
-                  <p className="font-lora text-gray-700">+4917632156647</p>
+                  <Phone className="w-5 h-5 text-salon-teal"/>
+                  <a href="tel:+4917632156647" className="font-lora text-gray-700">+4917632156647</a>
                 </div>
-                
+
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-salon-teal" />
-                  <p className="font-lora text-gray-700">Laser.beauty.studio@icloud.com</p>
+                <Mail className="w-5 h-5 text-salon-teal"/>
+                  <a href="mailto:laser.beauty.studio@icloud.com" className="font-lora text-gray-700">Laser.beauty.studio@icloud.com</a>
                 </div>
-                
+
                 <div className="flex items-start space-x-3">
-                  <Clock className="w-5 h-5 text-salon-teal mt-1" />
+                <Clock className="w-5 h-5 text-salon-teal mt-1" />
                   <div className="font-lora text-gray-700">
                     <p>{t('contact.hours')}:</p>
                     <div className="whitespace-pre-line">{t('contact.hours.detail')}</div>
