@@ -79,24 +79,6 @@ export const Services = ({ isVisible }: ServicesProps) => {
   // Женские пакеты с переводами
   const womenPackages = [
     {
-      title: language === 'de' ? 'Ganzkörper' : 'Все тіло',
-      description: language === 'de' 
-        ? 'Beine · Arme · Achseln · Bauch · Rücken · Intim komplett' 
-        : 'Ноги · Руки · Пахви · Живіт · Спина · Інтим повністю',
-      firstPrice: '99€',
-      regularPrice: '149€',
-      popular: true
-    },
-    {
-      title: language === 'de' ? 'Ganzkörper komplett' : 'Все тіло повністю',
-      description: language === 'de' 
-        ? 'Gesicht · Arme · Beine · Achseln · Bauch · Brust · Rücken · Intim komplett' 
-        : 'Обличчя · Руки · Ноги · Пахви · Живіт · Груди · Спина · Інтим повністю',
-      firstPrice: '149€',
-      regularPrice: '229€',
-      popular: true
-    },
-    {
       title: 'Baby Skin',
       description: language === 'de' ? 'Gesicht komplett + Hals' : 'Обличчя повністю + шия',
       firstPrice: '69€',
@@ -130,6 +112,30 @@ export const Services = ({ isVisible }: ServicesProps) => {
       firstPrice: '149€',
       regularPrice: '199€',
       popular: true
+    }
+  ];
+
+  // Полное тело пакеты для женщин - отображаются отдельно большими блоками
+  const womenFullBodyPackages = [
+    {
+      title: language === 'de' ? 'Ganzkörper' : 'Все тіло',
+      subtitle: language === 'de' ? 'ohne Gesicht' : 'без обличчя',
+      description: language === 'de' 
+        ? 'Beine · Arme · Achseln · Bauch · Rücken · Intim komplett' 
+        : 'Ноги · Руки · Пахви · Живіт · Спина · Інтим повністю',
+      firstPrice: '99€',
+      regularPrice: '149€',
+      id: 'women-ganzkorper'
+    },
+    {
+      title: language === 'de' ? 'Ganzkörper komplett' : 'Все тіло повністю',
+      subtitle: language === 'de' ? 'inkl. Gesicht' : 'включно з обличчям',
+      description: language === 'de' 
+        ? 'Gesicht · Arme · Beine · Achseln · Bauch · Brust · Rücken · Intim komplett' 
+        : 'Обличчя · Руки · Ноги · Пахви · Живіт · Груди · Спина · Інтим повністю',
+      firstPrice: '149€',
+      regularPrice: '229€',
+      id: 'women-ganzkorper-komplett'
     }
   ];
 
@@ -367,11 +373,60 @@ export const Services = ({ isVisible }: ServicesProps) => {
 
           <TabsContent value="women">
             <div className="space-y-12">
+              {/* Большие блоки Ganzkörper */}
+              <div>
+                <div className="text-center mb-8">
+                  <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
+                    {language === 'de' ? 'Ganzkörper-Pakete' : 'Пакети для всього тіла'}
+                  </h3>
+                  <p className="text-gray-600 font-lora">
+                    {language === 'de' ? 'Komplette Haarentfernung am ganzen Körper' : 'Повне видалення волосся на всьому тілі'}
+                  </p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6 mb-12">
+                  {womenFullBodyPackages.map((pkg, index) => (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-br from-salon-teal to-salon-teal-light rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+                      onClick={() => handlePackageClick(pkg.id)}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <h3 className="font-montserrat font-bold text-2xl text-white mb-1">
+                            {pkg.title}
+                          </h3>
+                          <p className="text-white/80 font-lora text-sm italic">
+                            {pkg.subtitle}
+                          </p>
+                        </div>
+                        <Sparkles className="w-8 h-8 text-white/90 group-hover:scale-110 transition-transform" />
+                      </div>
+                      
+                      <p className="text-white/90 font-lora text-sm mb-6 leading-relaxed">
+                        {pkg.description}
+                      </p>
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-white/90 font-lora">{t('services.first-appointment')}:</span>
+                          <span className="text-white font-montserrat font-bold text-2xl">{pkg.firstPrice}</span>
+                        </div>
+                        <div className="h-px bg-white/20"></div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-white/90 font-lora">{t('services.regular-price')}:</span>
+                          <span className="text-white font-montserrat font-bold text-2xl">{pkg.regularPrice}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               {/* Женские пакеты */}
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
-                    {language === 'de' ? 'Beliebte Frauen-Pakete' : 'Популярні жіночі пакети'}
+                    {language === 'de' ? 'Zonen-Pakete' : 'Пакети за зонами'}
                   </h3>
                   <p className="text-gray-600 font-lora">
                     {language === 'de' ? 'Sparen Sie bis zu 15% mit unseren speziellen Angeboten' : 'Економте до 15% з нашими спеціальними пропозиціями'}
