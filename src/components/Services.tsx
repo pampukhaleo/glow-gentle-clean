@@ -33,46 +33,34 @@ export const Services = ({ isVisible }: ServicesProps) => {
   // Мужские пакеты с переводами
   const menPackages = [
     {
-      title: 'Face & Style',
-      description: language === 'de' ? 'Gesicht komplett + Hals' : 'Обличчя повністю + шия',
-      price: '95€',
-      originalPrice: '125€',
-      popular: false
-    },
-    {
-      title: 'Fresh Start',
-      description: language === 'de' ? 'Achseln + Bartkontur + Hals' : 'Пахви + контур бороди + шия',
-      price: '90€',
-      originalPrice: '140€',
-      popular: true
-    },
-    {
       title: 'Business Rücken',
-      description: language === 'de' ? 'Rücken komplett + Nacken + Achseln' : 'Спина повністю + потилиця + пахви',
-      price: '140€',
-      originalPrice: '190€',
+      description: language === 'de' ? 'Rücken · Nacken · Achseln' : 'Спина · Потилиця · Пахви',
+      price: '119€',
       popular: false
     },
     {
-      title: 'Oberkörper Stark',
-      description: language === 'de' ? 'Brust + Bauch + Achseln + Nacken' : 'Груди + живіт + пахви + потилиця',
-      price: '170€',
-      originalPrice: '240€',
+      title: 'Oberkörper Paket',
+      description: language === 'de' ? 'Brust · Bauch · Achseln · Nacken' : 'Груди · Живіт · Пахви · Потилиця',
+      price: '139€',
       popular: true
     },
     {
       title: 'Intim Deluxe',
-      description: language === 'de' ? 'Intim komplett + Gesäßbereich + Achseln' : 'Інтим повністю + зона сідниць + пахви',
-      price: '130€',
-      originalPrice: '170€',
+      description: language === 'de' ? 'Intimbereich komplett · Po-Bereich' : 'Інтим повністю · Зона сідниць',
+      price: '99€',
       popular: false
     },
     {
-      title: 'All Inclusive Man',
-      description: language === 'de' ? 'Gesicht komplett + Hals + Rücken komplett + Brust + Bauch + Achseln + Intim komplett + Gesäßbereich' : 'Обличчя повністю + шия + спина повністю + груди + живіт + пахви + інтим повністю + зона сідниць',
-      price: '320€',
-      originalPrice: '450€',
+      title: 'Fresh Start',
+      description: language === 'de' ? 'Achseln · Bartkontur · Hals' : 'Пахви · Контур бороди · Шия',
+      price: '79€',
       popular: true
+    },
+    {
+      title: 'Face & Style',
+      description: language === 'de' ? 'Gesicht komplett · Hals' : 'Обличчя повністю · Шия',
+      price: '89€',
+      popular: false
     }
   ];
 
@@ -136,6 +124,30 @@ export const Services = ({ isVisible }: ServicesProps) => {
       firstPrice: '149€',
       regularPrice: '229€',
       id: 'women-ganzkorper-komplett'
+    }
+  ];
+
+  // Полное тело пакеты для мужчин - отображаются отдельно большими блоками
+  const menFullBodyPackages = [
+    {
+      title: language === 'de' ? 'Ganzkörper' : 'Все тіло',
+      subtitle: language === 'de' ? 'ohne Intimbereich' : 'без інтимної зони',
+      description: language === 'de' 
+        ? 'Arme · Beine · Achseln · Bauch · Rücken' 
+        : 'Руки · Ноги · Пахви · Живіт · Спина',
+      firstPrice: '199€',
+      regularPrice: '249€',
+      id: 'men-ganzkorper'
+    },
+    {
+      title: language === 'de' ? 'Ganzkörper + Intim' : 'Все тіло + Інтим',
+      subtitle: language === 'de' ? 'inkl. Gesicht & Intimbereich' : 'включно з обличчям та інтимом',
+      description: language === 'de' 
+        ? 'Gesicht · Arme · Beine · Achseln · Bauch · Brust · Rücken · Intimbereich komplett' 
+        : 'Обличчя · Руки · Ноги · Пахви · Живіт · Груди · Спина · Інтим повністю',
+      firstPrice: '249€',
+      regularPrice: '299€',
+      id: 'men-ganzkorper-intim'
     }
   ];
 
@@ -247,8 +259,9 @@ export const Services = ({ isVisible }: ServicesProps) => {
   ];
 
   const PackageCard = ({ pkg, index, gender }) => {
-    // Check if this is the new pricing format (firstPrice/regularPrice) or old format (price/originalPrice)
+    // Check if this is the new pricing format (firstPrice/regularPrice), single price, or old discount format
     const hasNewPricing = 'firstPrice' in pkg;
+    const hasSinglePrice = 'price' in pkg && !('originalPrice' in pkg);
     
     return (
       <div
@@ -285,6 +298,13 @@ export const Services = ({ isVisible }: ServicesProps) => {
               <span className="text-gray-600 font-lora text-sm">{t('services.regular-price')}:</span>
               <span className="text-gray-700 font-montserrat font-semibold text-lg">{pkg.regularPrice}</span>
             </div>
+          </div>
+        ) : hasSinglePrice ? (
+          // Single price format (no discount, just one price)
+          <div className="flex items-baseline gap-2 mb-4">
+            <span className="text-salon-teal font-montserrat font-bold text-3xl">
+              {pkg.price}
+            </span>
           </div>
         ) : (
           // Old pricing format with discount
@@ -468,14 +488,63 @@ export const Services = ({ isVisible }: ServicesProps) => {
 
           <TabsContent value="men">
             <div className="space-y-12">
-              {/* Мужские пакеты */}
+              {/* Большие блоки Ganzkörper для мужчин */}
               <div>
                 <div className="text-center mb-8">
                   <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
-                    {language === 'de' ? 'Beliebte Männer-Pakete' : 'Популярні чоловічі пакети'}
+                    {language === 'de' ? 'Ganzkörper-Pakete' : 'Пакети для всього тіла'}
                   </h3>
                   <p className="text-gray-600 font-lora">
-                    {language === 'de' ? 'Sparen Sie bis zu 40% mit unseren speziellen Angeboten' : 'Економте до 40% з нашими спеціальними пропозиціями'}
+                    {language === 'de' ? 'Komplette Haarentfernung am ganzen Körper' : 'Повне видалення волосся на всьому тілі'}
+                  </p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6 mb-12">
+                  {menFullBodyPackages.map((pkg, index) => (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-br from-salon-teal to-salon-teal-light rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+                      onClick={() => handlePackageClick(pkg.id)}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <h3 className="font-montserrat font-bold text-2xl text-white mb-1">
+                            {pkg.title}
+                          </h3>
+                          <p className="text-white/80 font-lora text-sm italic">
+                            {pkg.subtitle}
+                          </p>
+                        </div>
+                        <Sparkles className="w-8 h-8 text-white/90 group-hover:scale-110 transition-transform" />
+                      </div>
+                      
+                      <p className="text-white/90 font-lora text-sm mb-6 leading-relaxed">
+                        {pkg.description}
+                      </p>
+                      
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-white/90 font-lora">{language === 'de' ? 'Erster Termin' : 'Перший візит'}:</span>
+                          <span className="text-white font-montserrat font-bold text-2xl">{pkg.firstPrice}</span>
+                        </div>
+                        <div className="h-px bg-white/20"></div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-white/90 font-lora">{language === 'de' ? 'Folgetermine' : 'Наступні візити'}:</span>
+                          <span className="text-white font-montserrat font-bold text-2xl">{pkg.regularPrice}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Мужские зонные пакеты */}
+              <div>
+                <div className="text-center mb-8">
+                  <h3 className="font-montserrat font-bold text-2xl text-salon-teal mb-2">
+                    {language === 'de' ? 'Beliebte Zonen-Pakete' : 'Популярні пакети за зонами'}
+                  </h3>
+                  <p className="text-gray-600 font-lora">
+                    {language === 'de' ? 'Gezielte Behandlung für spezifische Zonen' : 'Цілеспрямоване лікування для конкретних зон'}
                   </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -499,24 +568,6 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 </div>
               </div>
 
-              {/* Полная эпиляция тела - отдельный блок */}
-              <div 
-                className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => handlePackageClick('men-full-body-complete')}
-              >
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-8 h-8" />
-                </div>
-                <h3 className="font-montserrat font-bold text-2xl mb-2">
-                  {t('men.services.full-body.complete')}
-                </h3>
-                <p className="font-lora mb-4 opacity-90">
-                  {language === 'de' ? 'Komplettlösung für den ganzen Körper' : 'Комплексне рішення для всього тіла'}
-                </p>
-                <div className="text-4xl font-montserrat font-bold">
-                  500€
-                </div>
-              </div>
             </div>
           </TabsContent>
         </Tabs>
