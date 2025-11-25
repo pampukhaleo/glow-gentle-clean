@@ -1,4 +1,4 @@
-import { Zap, Heart, Star, Shield, Users, Sparkles, User, Shirt, Target, Footprints, ArrowUp } from "lucide-react";
+import { Zap, Heart, Star, Shield, Users, Sparkles, User, Shirt, Target, Footprints, ArrowUp, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -440,6 +440,21 @@ export const Services = ({ isVisible }: ServicesProps) => {
                     </div>
                   ))}
                 </div>
+                
+                {/* WhatsApp Button */}
+                <div className="flex justify-center mt-6 mb-12">
+                  <a 
+                    href="https://wa.me/4917632156647" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-montserrat font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    <MessageCircle className="w-6 h-6" />
+                    <span>
+                      {language === 'de' ? 'Terminvereinbarung per WhatsApp' : 'Запис через WhatsApp'}
+                    </span>
+                  </a>
+                </div>
               </div>
 
               {/* Женские пакеты */}
@@ -534,6 +549,21 @@ export const Services = ({ isVisible }: ServicesProps) => {
                       </div>
                     </div>
                   ))}
+                </div>
+                
+                {/* WhatsApp Button */}
+                <div className="flex justify-center mt-6 mb-12">
+                  <a 
+                    href="https://wa.me/4917632156647" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-montserrat font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    <MessageCircle className="w-6 h-6" />
+                    <span>
+                      {language === 'de' ? 'Terminvereinbarung per WhatsApp' : 'Запис через WhatsApp'}
+                    </span>
+                  </a>
                 </div>
               </div>
 
