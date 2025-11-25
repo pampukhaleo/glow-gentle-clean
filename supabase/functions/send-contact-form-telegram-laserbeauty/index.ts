@@ -34,7 +34,7 @@ async function sendToTelegramChat(botToken: string, chatId: string, message: str
     return { success: true, chatName };
   } catch (error) {
     console.error(`Error sending to ${chatName}:`, error);
-    return { success: false, error: error.message, chatName };
+    return { success: false, error: (error as Error).message, chatName };
   }
 }
 
@@ -110,8 +110,8 @@ ${formattedMessage}
     const results = await Promise.allSettled(sendPromises);
 
     // Process results
-    const successResults = [];
-    const errorResults = [];
+    const successResults: Array<{ success: boolean; chatName: string; error?: string }> = [];
+    const errorResults: Array<{ success: boolean; chatName: string; error: string }> = [];
 
     results.forEach((result, index) => {
       if (result.status === 'fulfilled') {
