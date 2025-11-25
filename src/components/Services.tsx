@@ -79,38 +79,56 @@ export const Services = ({ isVisible }: ServicesProps) => {
   // Женские пакеты с переводами
   const womenPackages = [
     {
+      title: language === 'de' ? 'Ganzkörper' : 'Все тіло',
+      description: language === 'de' 
+        ? 'Beine · Arme · Achseln · Bauch · Rücken · Intim komplett' 
+        : 'Ноги · Руки · Пахви · Живіт · Спина · Інтим повністю',
+      firstPrice: '99€',
+      regularPrice: '149€',
+      popular: true
+    },
+    {
+      title: language === 'de' ? 'Ganzkörper komplett' : 'Все тіло повністю',
+      description: language === 'de' 
+        ? 'Gesicht · Arme · Beine · Achseln · Bauch · Brust · Rücken · Intim komplett' 
+        : 'Обличчя · Руки · Ноги · Пахви · Живіт · Груди · Спина · Інтим повністю',
+      firstPrice: '149€',
+      regularPrice: '229€',
+      popular: true
+    },
+    {
+      title: 'Baby Skin',
+      description: language === 'de' ? 'Gesicht komplett + Hals' : 'Обличчя повністю + шия',
+      firstPrice: '69€',
+      regularPrice: '89€',
+      popular: true
+    },
+    {
       title: 'Smooth Basic',
       description: language === 'de' ? 'Achseln + Intim komplett + Gesäßbereich' : 'Пахви + інтим повністю + зона сідниць',
-      price: '100€',
-      originalPrice: '110€',
+      firstPrice: '89€',
+      regularPrice: '129€',
       popular: false
     },
     {
       title: 'Beauty Legs',
-      description: language === 'de' ? 'Unterschenkel + Intim komplett + Gesäßbereich' : 'Гомілки + інтим повністю + зона сідниць',
-      price: '120€',
-      originalPrice: '130€',
+      description: language === 'de' ? 'Unterschenkel komplett + Intim komplett + Gesäßbereich' : 'Гомілки повністю + інтим повністю + зона сідниць',
+      firstPrice: '99€',
+      regularPrice: '139€',
       popular: false
     },
     {
       title: 'Soft Touch',
       description: language === 'de' ? 'Arme komplett + Achseln' : 'Руки повністю + пахви',
-      price: '120€',
-      originalPrice: '130€',
+      firstPrice: '99€',
+      regularPrice: '129€',
       popular: false
     },
     {
-      title: 'Baby Skin',
-      description: language === 'de' ? 'Gesicht komplett + Hals' : 'Обличчя повністю + шия',
-      price: '80€',
-      originalPrice: '90€',
-      popular: true
-    },
-    {
       title: 'Smooth Premium',
-      description: language === 'de' ? 'Beine komplett + Intim komplett + Gesäßbereich + Achseln' : 'Ноги повністю + інтим повністю + зона сідниць + пахви',
-      price: '180€',
-      originalPrice: '210€',
+      description: language === 'de' ? 'Beine komplett + Intim komplett + Achseln + Gesäßbereich' : 'Ноги повністю + інтим повністю + пахви + зона сідниць',
+      firstPrice: '149€',
+      regularPrice: '199€',
       popular: true
     }
   ];
@@ -222,46 +240,68 @@ export const Services = ({ isVisible }: ServicesProps) => {
     }
   ];
 
-  const PackageCard = ({ pkg, index, gender }) => (
-    <div
-      key={index}
-      className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative group border-2 cursor-pointer ${
-        pkg.popular ? 'border-salon-teal ring-2 ring-salon-teal/20' : 'border-gray-100'
-      }`}
-      onClick={() => handlePackageClick(`${gender}-${pkg.title.toLowerCase().replace(/\s+/g, '-').replace(/ü/g, 'u').replace(/ä/g, 'a').replace(/ö/g, 'o')}`)}
-    >
-      {pkg.popular && (
-        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-salon-teal to-salon-teal-light text-white px-4 py-1 rounded-full text-sm font-montserrat font-medium shadow-lg">
-          <Sparkles className="w-3 h-3 inline mr-1" />
-          {t('services.popular')}
+  const PackageCard = ({ pkg, index, gender }) => {
+    // Check if this is the new pricing format (firstPrice/regularPrice) or old format (price/originalPrice)
+    const hasNewPricing = 'firstPrice' in pkg;
+    
+    return (
+      <div
+        key={index}
+        className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative group border-2 cursor-pointer ${
+          pkg.popular ? 'border-salon-teal ring-2 ring-salon-teal/20' : 'border-gray-100'
+        }`}
+        onClick={() => handlePackageClick(`${gender}-${pkg.title.toLowerCase().replace(/\s+/g, '-').replace(/ü/g, 'u').replace(/ä/g, 'a').replace(/ö/g, 'o')}`)}
+      >
+        {pkg.popular && (
+          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-salon-teal to-salon-teal-light text-white px-4 py-1 rounded-full text-sm font-montserrat font-medium shadow-lg">
+            <Sparkles className="w-3 h-3 inline mr-1" />
+            {t('services.popular')}
+          </div>
+        )}
+        
+        <div className="mb-4">
+          <h3 className="font-montserrat font-bold text-xl text-gray-900 mb-2">
+            {pkg.title}
+          </h3>
+          <p className="font-lora text-gray-600 text-sm leading-relaxed">
+            {pkg.description}
+          </p>
         </div>
-      )}
-      
-      <div className="mb-4">
-        <h3 className="font-montserrat font-bold text-xl text-gray-900 mb-2">
-          {pkg.title}
-        </h3>
-        <p className="font-lora text-gray-600 text-sm leading-relaxed">
-          {pkg.description}
-        </p>
-      </div>
-      
-      <div className="flex items-baseline gap-2 mb-4">
-        <span className="text-salon-teal font-montserrat font-bold text-2xl">
-          {pkg.price}
-        </span>
-        <span className="text-gray-400 line-through font-montserrat text-lg">
-          {pkg.originalPrice}
-        </span>
-      </div>
+        
+        {hasNewPricing ? (
+          // New pricing format with first appointment and regular pricing
+          <div className="space-y-2 mb-4">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600 font-lora text-sm">{t('services.first-appointment')}:</span>
+              <span className="text-salon-teal font-montserrat font-bold text-xl">{pkg.firstPrice}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600 font-lora text-sm">{t('services.regular-price')}:</span>
+              <span className="text-gray-700 font-montserrat font-semibold text-lg">{pkg.regularPrice}</span>
+            </div>
+          </div>
+        ) : (
+          // Old pricing format with discount
+          <>
+            <div className="flex items-baseline gap-2 mb-4">
+              <span className="text-salon-teal font-montserrat font-bold text-2xl">
+                {pkg.price}
+              </span>
+              <span className="text-gray-400 line-through font-montserrat text-lg">
+                {pkg.originalPrice}
+              </span>
+            </div>
 
-      <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium inline-block">
-        {language === 'de' ? 'Ersparnis' : 'Економія'} {parseInt(pkg.originalPrice) - parseInt(pkg.price)}€
+            <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-medium inline-block">
+              {language === 'de' ? 'Ersparnis' : 'Економія'} {parseInt(pkg.originalPrice) - parseInt(pkg.price)}€
+            </div>
+          </>
+        )}
+        
+        <div className="absolute inset-0 bg-salon-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
       </div>
-      
-      <div className="absolute inset-0 bg-salon-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none"></div>
-    </div>
-  );
+    );
+  };
 
   const ServiceGroupCard = ({ group, index }) => (
     <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 opacity-80">
@@ -358,24 +398,6 @@ export const Services = ({ isVisible }: ServicesProps) => {
                 </div>
               </div>
 
-              {/* Полная эпиляция тела - отдельный блок для женщин */}
-              <div 
-                className="bg-gradient-to-r from-salon-teal to-salon-teal-light rounded-2xl p-8 text-center text-white cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => handlePackageClick('women-full-body-complete')}
-              >
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-8 h-8" />
-                </div>
-                <h3 className="font-montserrat font-bold text-2xl mb-2">
-                  {t('women.services.full-body.complete')}
-                </h3>
-                <p className="font-lora mb-4 opacity-90">
-                  {language === 'de' ? 'Komplettlösung für den ganzen Körper' : 'Комплексне рішення для всього тіла'}
-                </p>
-                <div className="text-4xl font-montserrat font-bold">
-                  350€
-                </div>
-              </div>
 
               {/* Hinweis */}
               <div className="text-center text-gray-600 font-lora text-sm">

@@ -51,6 +51,8 @@ const translations = {
     'services.popular': 'Beliebt',
     'services.from': 'Ab',
     'services.consultation.btn': 'Termin buchen →',
+    'services.first-appointment': '1. Termin',
+    'services.regular-price': 'Weitere Termine',
     
     // Men's services
     'men.services.face': 'Gesicht',
@@ -289,6 +291,8 @@ const translations = {
     'services.popular': 'Популярно',
     'services.from': 'Від',
     'services.consultation.btn': 'Записатися →',
+    'services.first-appointment': '1-й сеанс',
+    'services.regular-price': 'Наступні сеанси',
     
     // Men's services
     'men.services.face': 'Обличчя',
