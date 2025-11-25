@@ -29,7 +29,7 @@ export const Services = ({ isVisible }: ServicesProps) => {
       }, 500);
     }
   };
-
+//new
   // Мужские пакеты с переводами
   const menPackages = [
     {
